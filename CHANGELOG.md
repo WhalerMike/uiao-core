@@ -1,3 +1,13 @@
+# [0.30.0](https://github.com/WhalerMike/uiao-core/compare/v0.29.0...v0.30.0) (2026-03-22)
+
+
+### Features
+
+* Link SSP inventory section to core-stack component data ([d0273fc](https://github.com/WhalerMike/uiao-core/commit/d0273fc5d8e0cc2b4081f3a11590a474a6bcaa20))
+* Link SSP inventory section to core-stack component data ([1badd29](https://github.com/WhalerMike/uiao-core/commit/1badd29bca20b892310e5b6141a1c6a20ec69156))
+
+
+
 # [0.29.0](https://github.com/WhalerMike/uiao-core/compare/v0.28.1...v0.29.0) (2026-03-22)
 
 
@@ -34,15 +44,6 @@
 ### Features
 
 * Add compliance-trestle OSCAL validation and fix schema compliance ([ded4b21](https://github.com/WhalerMike/uiao-core/commit/ded4b2191059eb28426869f2124db5c8f2b95dd9))
-
-
-
-# [0.26.0](https://github.com/WhalerMike/uiao-core/compare/v0.25.0...v0.26.0) (2026-03-22)
-
-
-### Features
-
-* Add OSCAL Exports section to Pages dashboard and enforce validation in CI ([1053ed0](https://github.com/WhalerMike/uiao-core/commit/1053ed0732ecc6f2064766cdece1be931828a6dc))
 
 
 
