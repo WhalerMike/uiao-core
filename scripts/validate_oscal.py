@@ -1,4 +1,5 @@
 import warnings
+
 warnings.warn(
     "scripts/validate_oscal.py is deprecated. Use `uiao` CLI instead.",
     DeprecationWarning,
@@ -93,8 +94,7 @@ def main():
         else:
             print(f"  PASS: {jf.name}")
 
-    print(f"\nValidation complete: {len(json_files)} files, "
-          f"{total_errors} errors")
+    print(f"\nValidation complete: {len(json_files)} files, {total_errors} errors")
 
     if total_errors > 0:
         return 1

@@ -4,17 +4,17 @@ from scripts.sync_orchestrator import SyncOrchestrator
 
 
 def load_mock(filename):
-    with open(filename, 'r') as f:
+    with open(filename, "r") as f:
         return json.load(f)
 
 
-@patch('requests.get')
-@patch('requests.patch')
-@patch('requests.post')
+@patch("requests.get")
+@patch("requests.patch")
+@patch("requests.post")
 def test_pipeline(mock_post, mock_patch, mock_get):
     # Setup Mocks
-    infoblox_data = load_mock('tests/data/mock_infoblox.json')
-    servicenow_data = load_mock('tests/data/mock_servicenow.json')
+    infoblox_data = load_mock("tests/data/mock_infoblox.json")
+    servicenow_data = load_mock("tests/data/mock_servicenow.json")
     empty_sn_data = {"result": []}
 
     # Define behavior:
@@ -23,7 +23,7 @@ def test_pipeline(mock_post, mock_patch, mock_get):
     mock_get.side_effect = [
         MagicMock(status_code=200, json=lambda: infoblox_data),
         MagicMock(status_code=200, json=lambda: servicenow_data),
-        MagicMock(status_code=200, json=lambda: empty_sn_data)
+        MagicMock(status_code=200, json=lambda: empty_sn_data),
     ]
 
     # Run the Orchestrator
