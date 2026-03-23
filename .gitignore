@@ -8,3 +8,4 @@ build/
 *.pyc
 *.pyo
 .env
+node_modules/
