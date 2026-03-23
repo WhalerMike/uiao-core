@@ -23,7 +23,7 @@ def get_settings() -> Settings:
     try:
         return Settings()
     except Exception:
-        return Settings(_env_file=None)
+        return Settings(_env_file=None)  # type: ignore[call-arg]
 
 
 def load_context(

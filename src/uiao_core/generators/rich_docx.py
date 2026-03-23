@@ -58,7 +58,7 @@ def _add_classification_header(doc: Document, classification: str = "CUI") -> No
         fr.font.color.rgb = RGBColor(0x80, 0x80, 0x80)
 
 
-def _add_heading(doc: Document, text: str, level: int = 1):
+def _add_heading(doc: Document, text: str, level: int = 1) -> Any:
     """Add a heading with consistent navy styling."""
     h = doc.add_heading(text, level=level)
     for run in h.runs:

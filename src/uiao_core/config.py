@@ -17,9 +17,11 @@ class Settings(BaseSettings):
     )
 
     root_dir: Path = Path.cwd()
+    project_root: Path = Path.cwd()
     canon_dir: Path = Path("canon")
     templates_dir: Path = Path("templates")
     data_dir: Path = Path("data")
     exports_dir: Path = Path("exports")
     schemas_dir: Path = Path("schemas")
     compliance_dir: Path = Path("compliance")
+    visuals_dir: Path = Path("visuals")

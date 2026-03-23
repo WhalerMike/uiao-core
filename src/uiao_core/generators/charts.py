@@ -74,8 +74,8 @@ def generate_maturity_radar(
     angles_closed = angles + angles[:1]
 
     fig, ax = plt.subplots(figsize=(8, 8), subplot_kw={"projection": "polar"})
-    ax.set_theta_offset(math.pi / 2)
-    ax.set_theta_direction(-1)
+    ax.set_theta_offset(math.pi / 2)  # type: ignore[attr-defined]
+    ax.set_theta_direction(-1)  # type: ignore[attr-defined]
     ax.set_xticks(angles)
     ax.set_xticklabels(labels, fontsize=10, fontweight="bold", color=UIAO_NAVY)
     ax.set_ylim(0, 4.5)

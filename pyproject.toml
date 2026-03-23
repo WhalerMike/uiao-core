@@ -41,6 +41,7 @@ dev = [
     "ruff>=0.4.0",
     "mypy>=1.10.0",
     "pre-commit>=3.7.0",
+    "types-PyYAML>=6.0",
 ]
 visuals = [
     "google-genai>=1.0.0",
@@ -82,12 +83,18 @@ module = ["compliance_trestle.*", "trestle.*"]
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
-module = ["matplotlib.*", "numpy.*", "docxtpl.*", "pptx.*", "openpyxl.*", "mkdocs.*"]
+module = ["matplotlib.*", "numpy.*", "docxtpl.*", "openpyxl.*", "mkdocs.*"]
 ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["pptx.*"]
+ignore_missing_imports = true
+follow_imports = "skip"
 
 [[tool.mypy.overrides]]
 module = ["docx.*", "jinja2.*"]
 ignore_missing_imports = true
+follow_imports = "skip"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

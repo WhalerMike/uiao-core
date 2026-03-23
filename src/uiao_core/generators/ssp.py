@@ -157,9 +157,9 @@ def build_ssp_skeleton(context: dict[str, Any]) -> dict[str, Any]:
                     item_props.append({"name": prop.get("name", ""), "value": prop.get("value", "")})
             impl_components = []
             for comp_ref in item.get("implemented_components", []):
-                comp_uuid = component_id_to_uuid.get(comp_ref)
-                if comp_uuid:
-                    impl_components.append({"component-uuid": comp_uuid})
+                resolved_uuid = component_id_to_uuid.get(comp_ref)
+                if resolved_uuid:
+                    impl_components.append({"component-uuid": resolved_uuid})
             oscal_item = {
                 "uuid": str(uuid.uuid4()),
                 "description": item.get("description", ""),

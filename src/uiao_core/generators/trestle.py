@@ -12,6 +12,7 @@ import json
 import logging
 from copy import deepcopy
 from pathlib import Path
+from typing import Any, cast
 
 from trestle.oscal.component import ComponentDefinition
 from trestle.oscal.poam import PlanOfActionAndMilestones
@@ -27,12 +28,12 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 
-def _load_json(path: Path) -> dict:
+def _load_json(path: Path) -> dict[str, Any]:
     """Load and return a JSON file as a dict."""
     if not path.exists():
         raise FileNotFoundError(f"Required OSCAL file not found: {path}")
     with path.open("r", encoding="utf-8") as fh:
-        return json.load(fh)
+        return cast(dict[str, Any], json.load(fh))
 
 
 def _validate_ssp(data: dict) -> bool:
@@ -139,7 +140,7 @@ def assemble_ssp(
 # Artifact model map
 # ---------------------------------------------------------------------------
 
-ARTIFACT_MODELS: dict[str, type] = {
+ARTIFACT_MODELS: dict[str, Any] = {
     "component-definition": ComponentDefinition,
     "system-security-plan": SystemSecurityPlan,
     "plan-of-action-and-milestones": PlanOfActionAndMilestones,

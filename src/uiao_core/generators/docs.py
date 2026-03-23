@@ -144,7 +144,7 @@ def render_template(
 ) -> str:
     """Render a single Jinja2 template and write to output_path."""
     template = env.get_template(template_name)
-    output = template.render(**context)
+    output: str = template.render(**context)
     output_path.write_text(output, encoding="utf-8")
     return output
 
