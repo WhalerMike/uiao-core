@@ -159,8 +159,28 @@ def _add_evidence_table(doc: Document) -> None:
 # ---------------------------------------------------------------------------
 
 
-def _build_from_scratch(context: dict, visuals_dir: Path) -> Document:
+def _add_manifest_images(
+    doc: Document,
+    resolved_images: dict[str, list[Path]],
+    section_name: str,
+) -> None:
+    """Embed all manifest images whose doc_location mentions *section_name*."""
+    from uiao_core.generators.visual_resolver import get_images_for_location
+
+    images = get_images_for_location(resolved_images, section_name)
+    for img_path in images:
+        if img_path.exists():
+            doc.add_picture(str(img_path), width=_DEFAULT_IMAGE_WIDTH)
+            doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+        else:
+            logger.warning("Resolved image path no longer exists: %s", img_path)
+
+
+def _build_from_scratch(context: dict, visuals_dir: Path,
+                        resolved_images: dict[str, list[Path]] | None = None) -> Document:
     """Build a complete styled DOCX programmatically."""
+    if resolved_images is None:
+        resolved_images = {}
     doc = Document()
     lb = context.get("leadership_briefing", {})
     if not isinstance(lb, dict):
@@ -206,15 +226,18 @@ def _build_from_scratch(context: dict, visuals_dir: Path) -> Document:
     # Sections
     _add_heading(doc, "Executive Summary")
     _add_narrative(doc, lb.get("executive_summary"))
+    _add_manifest_images(doc, resolved_images, "Executive Summary")
 
     _add_heading(doc, "Program Overview")
     _add_narrative(doc, lb.get("program_overview"))
+    _add_manifest_images(doc, resolved_images, "Program Overview")
 
     _add_heading(doc, "Why Modernization Is Required")
     _add_narrative(doc, lb.get("modernization_need"))
 
     _add_heading(doc, "Program Vision")
     _add_narrative(doc, lb.get("program_vision"))
+    _add_manifest_images(doc, resolved_images, "Program Vision")
 
     # Five Control Planes
     _add_heading(doc, "The Five Control Planes")
@@ -276,6 +299,24 @@ def _build_from_scratch(context: dict, visuals_dir: Path) -> Document:
             for png in gemini_pngs:
                 _add_heading(doc, png.stem.replace("-", " ").title(), level=2)
                 _add_image_safe(doc, png.name, gemini_dir)
+
+    # Manifest-driven visuals (all remaining doc_locations not already embedded)
+    if resolved_images:
+        # Collect all images not yet embedded inline (i.e. not section-matched above)
+        _already_matched = {"Executive Summary", "Program Overview", "Program Vision"}
+        manifest_extras: list[tuple[str, Path]] = []
+        for loc, paths in sorted(resolved_images.items()):
+            if not any(m.lower() in loc.lower() for m in _already_matched):
+                for p in paths:
+                    manifest_extras.append((loc, p))
+        if manifest_extras:
+            doc.add_page_break()
+            _add_heading(doc, "Manifest-Driven Visuals")
+            for loc, img_path in manifest_extras:
+                if img_path.exists():
+                    _add_heading(doc, loc, level=2)
+                    doc.add_picture(str(img_path), width=_DEFAULT_IMAGE_WIDTH)
+                    doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     # FedRAMP Evidence Summary
     doc.add_page_break()
