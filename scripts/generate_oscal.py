@@ -5,8 +5,9 @@ import ``build_oscal`` from ``uiao_core.generators.oscal``.
 
 Deprecated: Use `uiao generate-oscal` CLI command instead.
 """
-import warnings
+
 import logging
+import warnings
 
 warnings.warn(
     "scripts/generate_oscal.py is deprecated. Use `uiao generate-oscal` instead.",

@@ -5,8 +5,9 @@ import ``build_charts`` from ``uiao_core.generators.charts``.
 
 Deprecated: Use `uiao generate-charts` CLI command instead.
 """
-import warnings
+
 import logging
+import warnings
 
 warnings.warn(
     "scripts/generate_charts.py is deprecated. Use `uiao generate-charts` instead.",

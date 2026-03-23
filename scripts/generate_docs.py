@@ -5,8 +5,9 @@ import ``build_docs`` from ``uiao_core.generators.docs``.
 
 Deprecated: Use `uiao generate-docs` CLI command instead.
 """
-import warnings
+
 import logging
+import warnings
 
 warnings.warn(
     "scripts/generate_docs.py is deprecated. Use `uiao generate-docs` instead.",

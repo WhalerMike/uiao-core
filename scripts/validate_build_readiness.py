@@ -1,4 +1,5 @@
 import warnings
+
 warnings.warn(
     "scripts/validate_build_readiness.py is deprecated. Use `uiao` CLI instead.",
     DeprecationWarning,
@@ -13,7 +14,6 @@ visuals or data files are still being committed.
 """
 import os
 import sys
-
 
 REQUIRED_FILES = [
     "data/nist_crosswalk.yml",

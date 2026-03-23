@@ -6,12 +6,14 @@ assembled System Security Plan.
 
 References: ADR-0004
 """
+
 from __future__ import annotations
 
 import json
 import logging
 from copy import deepcopy
 from pathlib import Path
+from typing import Any
 
 from trestle.oscal.component import ComponentDefinition
 from trestle.oscal.poam import PlanOfActionAndMilestones
@@ -27,12 +29,12 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 
-def _load_json(path: Path) -> dict:
+def _load_json(path: Path) -> dict[str, Any]:
     """Load and return a JSON file as a dict."""
     if not path.exists():
         raise FileNotFoundError(f"Required OSCAL file not found: {path}")
     with path.open("r", encoding="utf-8") as fh:
-        return json.load(fh)
+        return dict(json.load(fh))
 
 
 def _validate_ssp(data: dict) -> bool:
@@ -67,14 +69,16 @@ def _assemble(ssp_data: dict, cd_data: dict) -> dict:
     cd_components = cd.get("components", [])
 
     for comp in cd_components:
-        existing_components.append({
-            "uuid": comp.get("uuid", ""),
-            "type": comp.get("type", "service"),
-            "title": comp.get("title", ""),
-            "description": comp.get("description", ""),
-            "props": comp.get("props", []),
-            "status": {"state": "operational"},
-        })
+        existing_components.append(
+            {
+                "uuid": comp.get("uuid", ""),
+                "type": comp.get("type", "service"),
+                "title": comp.get("title", ""),
+                "description": comp.get("description", ""),
+                "props": comp.get("props", []),
+                "status": {"state": "operational"},
+            }
+        )
     logger.info("Merged %d components into system-implementation.", len(cd_components))
 
     # Merge control-implementations
@@ -134,12 +138,11 @@ def assemble_ssp(
     return output_path
 
 
-
 # ---------------------------------------------------------------------------
 # Artifact model map
 # ---------------------------------------------------------------------------
 
-ARTIFACT_MODELS: dict[str, type] = {
+ARTIFACT_MODELS: dict[str, Any] = {
     "component-definition": ComponentDefinition,
     "system-security-plan": SystemSecurityPlan,
     "plan-of-action-and-milestones": PlanOfActionAndMilestones,
@@ -183,7 +186,7 @@ def validate_oscal_artifacts(
             continue
 
         try:
-            model_class.parse_obj(data[root_key])
+            model_class.model_validate(data[root_key])
             logger.info("PASS: %s", json_path.name)
         except Exception as exc:
             logger.error("FAIL: %s", json_path.name)

@@ -1,7 +1,10 @@
 """Tests for uiao_core.models.canon module."""
+
 from __future__ import annotations
 
 import pytest
+from pydantic import ValidationError
+
 from uiao_core.models.canon import CanonEntry
 
 
@@ -27,7 +30,7 @@ class TestCanonEntry:
 
     def test_missing_required_field_raises(self) -> None:
         """CanonEntry requires id and name."""
-        with pytest.raises(ValueError):
+        with pytest.raises(ValidationError):
             CanonEntry(description="no id or name")
 
 

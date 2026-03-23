@@ -5,8 +5,9 @@ import ``build_ssp`` from ``uiao_core.generators.ssp``.
 
 Deprecated: Use `uiao generate-ssp` CLI command instead.
 """
-import warnings
+
 import logging
+import warnings
 
 warnings.warn(
     "scripts/generate_ssp.py is deprecated. Use `uiao generate-ssp` instead.",

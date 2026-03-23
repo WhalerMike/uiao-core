@@ -5,8 +5,9 @@ import ``build_poam_export`` from ``uiao_core.generators.poam``.
 
 Deprecated: Use `uiao generate-poam` CLI command instead.
 """
-import warnings
+
 import logging
+import warnings
 
 warnings.warn(
     "scripts/generate_poam.py is deprecated. Use `uiao generate-poam` instead.",

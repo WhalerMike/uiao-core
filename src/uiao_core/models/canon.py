@@ -7,9 +7,9 @@ with strict nested models and field validators in Week 2.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
-import yaml
+import yaml  # type: ignore[import-untyped]
 from pydantic import BaseModel, ConfigDict
 
 from ..config import Settings
@@ -52,9 +52,7 @@ class CanonModel(BaseModel):
 
 def load_canon(canon_path: Path | None = None) -> CanonModel:
     """Load and validate a canon YAML file."""
-    path = canon_path or (
-        settings.root_dir / settings.canon_dir / "uiao_leadership_briefing_v1.0.yaml"
-    )
+    path = canon_path or (settings.root_dir / settings.canon_dir / "uiao_leadership_briefing_v1.0.yaml")
     with path.open(encoding="utf-8") as f:
-        data = yaml.safe_load(f)
-    return CanonModel.model_validate(data)
+        data: dict[str, Any] = yaml.safe_load(f)
+    return cast(CanonModel, CanonModel.model_validate(data))

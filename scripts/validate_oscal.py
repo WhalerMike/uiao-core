@@ -1,4 +1,5 @@
 import warnings
+
 warnings.warn(
     "scripts/validate_oscal.py is deprecated. Use `uiao` CLI instead.",
     DeprecationWarning,
@@ -34,7 +35,7 @@ def validate_file(file_path):
     """Validate a single OSCAL JSON file."""
     errors = []
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             data = json.load(f)
     except json.JSONDecodeError as e:
         return [f"Invalid JSON: {e}"]
@@ -93,8 +94,7 @@ def main():
         else:
             print(f"  PASS: {jf.name}")
 
-    print(f"\nValidation complete: {len(json_files)} files, "
-          f"{total_errors} errors")
+    print(f"\nValidation complete: {len(json_files)} files, {total_errors} errors")
 
     if total_errors > 0:
         return 1
