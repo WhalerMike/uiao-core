@@ -227,13 +227,13 @@ def _build_pptx(context: dict[str, Any], settings: Any) -> Presentation:
         _add_content_slide(prs, "The Five Control Planes", plane_bullets[:5])
 
     # --- Mermaid Diagrams ---
-    mermaid_dir = settings.project_root / "assets" / "images" / "mermaid"
+    mermaid_dir = settings.root_dir / "assets" / "images" / "mermaid"
     if mermaid_dir.exists():
         for png in sorted(mermaid_dir.glob("*.png")):
             _add_image_slide(prs, png.stem.replace("-", " ").title(), png)
 
     # --- Gemini AI Visuals ---
-    gemini_dir = settings.project_root / "assets" / "images" / "gemini"
+    gemini_dir = settings.root_dir / "assets" / "images" / "gemini"
     if gemini_dir.exists():
         for png in sorted(gemini_dir.glob("*.png")):
             _add_image_slide(prs, png.stem.replace("-", " ").title(), png)
@@ -250,7 +250,7 @@ def _build_pptx(context: dict[str, Any], settings: Any) -> Presentation:
         _add_image_slide(prs, slide_title, img_path)
 
     # --- Charts ---
-    charts_dir = settings.project_root / "assets" / "images"
+    charts_dir = settings.root_dir / "assets" / "images"
     radar = charts_dir / "dynamic-maturity-radar.png"
     if radar.exists():
         _add_image_slide(prs, "CISA Zero Trust Maturity Assessment", radar)

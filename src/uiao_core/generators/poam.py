@@ -123,7 +123,7 @@ def build_poam_export(
     """Build and export POA&M JSON. Returns path to generated file."""
     settings = get_settings()
     if output_dir is None:
-        output_dir = settings.project_root / "exports" / "oscal"
+        output_dir = settings.root_dir / "exports" / "oscal"
     output_dir = Path(output_dir)
 
     context = load_context(canon_path, data_dir)

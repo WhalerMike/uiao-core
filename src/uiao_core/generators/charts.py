@@ -48,7 +48,7 @@ def generate_maturity_radar(
 ) -> Path | None:
     """Generate CISA Zero Trust Maturity radar chart."""
     if output_dir is None:
-        output_dir = get_settings().project_root / "visuals"
+        output_dir = get_settings().root_dir / "visuals"
     output_dir = Path(output_dir)
 
     mapping = context.get("cisa_zt_maturity_mapping", [])
@@ -116,7 +116,7 @@ def generate_compliance_coverage(
 ) -> Path | None:
     """Generate compliance coverage bar chart."""
     if output_dir is None:
-        output_dir = get_settings().project_root / "visuals"
+        output_dir = get_settings().root_dir / "visuals"
     output_dir = Path(output_dir)
 
     matrix = context.get("unified_compliance_matrix", [])

@@ -142,7 +142,7 @@ def render_mermaid_file(
     """
     if output_dir is None:
         settings = get_settings()
-        output_dir = settings.project_root / _DEFAULT_OUTPUT_DIR
+        output_dir = settings.root_dir / _DEFAULT_OUTPUT_DIR
     output_dir.mkdir(parents=True, exist_ok=True)
 
     png_name = mmd_path.stem + ".png"
@@ -192,11 +192,11 @@ def render_all_mermaid(
     """
     settings = get_settings()
     if visuals_dir is None:
-        visuals_dir = settings.project_root / _DEFAULT_VISUALS_DIR
+        visuals_dir = settings.root_dir / _DEFAULT_VISUALS_DIR
     visuals_dir = Path(visuals_dir)
 
     if output_dir is None:
-        output_dir = settings.project_root / _DEFAULT_OUTPUT_DIR
+        output_dir = settings.root_dir / _DEFAULT_OUTPUT_DIR
     output_dir = Path(output_dir)
 
     mermaid_files = sorted(visuals_dir.glob("*.mermaid"))
@@ -226,7 +226,7 @@ def build_mermaid_visuals(
     """
     settings = get_settings()
     if output_dir is None:
-        output_dir = settings.project_root / _DEFAULT_OUTPUT_DIR
+        output_dir = settings.root_dir / _DEFAULT_OUTPUT_DIR
     output_dir = Path(output_dir)
 
     render_all_mermaid(visuals_dir, output_dir, force=force)

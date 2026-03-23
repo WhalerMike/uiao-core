@@ -171,7 +171,7 @@ def generate_gemini_image(
     """
     if output_dir is None:
         settings = get_settings()
-        output_dir = settings.project_root / _DEFAULT_OUTPUT_DIR
+        output_dir = settings.root_dir / _DEFAULT_OUTPUT_DIR
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if prompt is None:
@@ -213,7 +213,7 @@ def generate_all_gemini_images(
     """
     settings = get_settings()
     if output_dir is None:
-        output_dir = settings.project_root / _DEFAULT_OUTPUT_DIR
+        output_dir = settings.root_dir / _DEFAULT_OUTPUT_DIR
     output_dir = Path(output_dir)
 
     # Merge built-in with custom prompts
@@ -222,7 +222,7 @@ def generate_all_gemini_images(
         all_prompts.update(prompts)
 
     # Also load external prompt registry if it exists
-    registry_path = settings.project_root / _PROMPT_REGISTRY_FILE
+    registry_path = settings.root_dir / _PROMPT_REGISTRY_FILE
     if registry_path.exists():
         try:
             external = json.loads(registry_path.read_text(encoding="utf-8"))
@@ -260,7 +260,7 @@ def build_gemini_visuals(
     """Entry point matching other generators' build_* pattern."""
     settings = get_settings()
     if output_dir is None:
-        output_dir = settings.project_root / _DEFAULT_OUTPUT_DIR
+        output_dir = settings.root_dir / _DEFAULT_OUTPUT_DIR
     output_dir = Path(output_dir)
 
     generate_all_gemini_images(output_dir, force=force, model=model)
