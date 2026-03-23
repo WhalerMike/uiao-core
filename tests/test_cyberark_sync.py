@@ -1,22 +1,22 @@
 import json
 import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
 from cyberark_sync_orchestrator import SyncOrchestrator
 
 
 def load_mock(filename):
-    with open(filename, 'r') as f:
+    with open(filename) as f:
         return json.load(f)
 
 
 class TestCyberArkSync(unittest.TestCase):
-
-    @patch('requests.post')
-    @patch('requests.get')
-    @patch('requests.patch')
+    @patch("requests.post")
+    @patch("requests.get")
+    @patch("requests.patch")
     def test_full_pipeline(self, mock_patch, mock_get, mock_post):
         # 1. Setup Mock Data
-        mock_ca_accounts = load_mock('mock_cyberark.json')
+        mock_ca_accounts = load_mock("mock_cyberark.json")
 
         # Simulate ServiceNow finding the first account but not the second
         mock_sn_lookup_exists = {"result": [{"sys_id": "sn_999", "correlation_id": "123_45_6789_admin"}]}
@@ -27,7 +27,7 @@ class TestCyberArkSync(unittest.TestCase):
         # Second POST: ServiceNow Insert (For the new record)
         mock_post.side_effect = [
             MagicMock(status_code=200, text='"mock_token_abc_123"'),  # CyberArk Logon
-            MagicMock(status_code=201)  # ServiceNow Create
+            MagicMock(status_code=201),  # ServiceNow Create
         ]
 
         # First GET: CyberArk Accounts
@@ -36,7 +36,7 @@ class TestCyberArkSync(unittest.TestCase):
         mock_get.side_effect = [
             MagicMock(status_code=200, json=lambda: mock_ca_accounts),
             MagicMock(status_code=200, json=lambda: mock_sn_lookup_exists),
-            MagicMock(status_code=200, json=lambda: mock_sn_lookup_empty)
+            MagicMock(status_code=200, json=lambda: mock_sn_lookup_empty),
         ]
 
         # 3. Run the Orchestrator (Dry Run = False to test write calls)
