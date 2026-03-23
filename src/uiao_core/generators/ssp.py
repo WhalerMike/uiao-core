@@ -64,6 +64,9 @@ def build_ssp_skeleton(context: dict[str, Any]) -> dict[str, Any]:
     inventory_items = context.get("inventory_items", [])
     if not isinstance(inventory_items, list):
         inventory_items = []
+    core_stack = context.get("core_stack", [])
+    if not isinstance(core_stack, list):
+        core_stack = []
 
     set_params, ctrl_to_params = build_set_parameters(context)
     now_iso = datetime.now(timezone.utc).isoformat()
@@ -145,6 +148,39 @@ def build_ssp_skeleton(context: dict[str, Any]) -> dict[str, Any]:
             "props": props,
         })
 
+    # Add core-stack.yml components as software components linked to their pillars
+    pillar_to_stack_uuid: dict[str, str] = {}
+    for stack_item in core_stack:
+        if not isinstance(stack_item, dict):
+            continue
+        comp_uuid = str(uuid.uuid4())
+        item_id = stack_item.get("id", "unknown")
+        item_pillar = str(stack_item.get("pillar", "")).lower()
+        # Track pillar → core-stack UUID for inventory linking below
+        if item_pillar:
+            pillar_to_stack_uuid[item_pillar] = comp_uuid
+
+        stack_props = [
+            {"name": "pillar", "value": item_pillar.upper() if item_pillar else "UNKNOWN"},
+            {"name": "component-id", "value": f"stack-{item_id.lower()}"},
+            {"name": "core-stack-ref", "value": item_id},
+        ]
+        if item_pillar:
+            stack_props.append({"name": "pillar-ref", "value": f"component-{item_pillar}"})
+
+        ssp["system-implementation"]["components"].append({
+            "uuid": comp_uuid,
+            "type": "software",
+            "title": stack_item.get("name", item_id),
+            "description": (
+                f"UIAO core stack component for {item_pillar} pillar"
+                if item_pillar
+                else f"UIAO core stack component {item_id}"
+            ),
+            "status": {"state": "operational"},
+            "props": stack_props,
+        })
+
     # Populate inventory-items
     if inventory_items:
         oscal_inventory = []
@@ -160,6 +196,14 @@ def build_ssp_skeleton(context: dict[str, Any]) -> dict[str, Any]:
                 comp_uuid = component_id_to_uuid.get(comp_ref)
                 if comp_uuid:
                     impl_components.append({"component-uuid": comp_uuid})
+            # Also link to the corresponding core-stack component via pillar
+            for comp_ref in item.get("implemented_components", []):
+                # comp_ref is like "component-identity" → pillar is "identity"
+                if comp_ref.startswith("component-"):
+                    pillar = comp_ref[len("component-"):]
+                    stack_uuid = pillar_to_stack_uuid.get(pillar)
+                    if stack_uuid and {"component-uuid": stack_uuid} not in impl_components:
+                        impl_components.append({"component-uuid": stack_uuid})
             oscal_item = {
                 "uuid": str(uuid.uuid4()),
                 "description": item.get("description", ""),

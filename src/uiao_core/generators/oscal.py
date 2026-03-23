@@ -213,6 +213,35 @@ def build_component_definition(
             "control-implementations": control_imps,
         })
 
+    # Add core-stack.yml components as software components linked to their pillars
+    core_stack = context.get("core_stack", [])
+    if not isinstance(core_stack, list):
+        core_stack = []
+    for stack_item in core_stack:
+        if not isinstance(stack_item, dict):
+            continue
+        item_id = stack_item.get("id", "unknown")
+        item_pillar = str(stack_item.get("pillar", "")).lower()
+        props: list[dict[str, str]] = [
+            {"name": "uiao-pillar", "value": item_pillar.upper() if item_pillar else "UNKNOWN"},
+            {"name": "component-id", "value": f"stack-{item_id.lower()}"},
+            {"name": "core-stack-ref", "value": item_id},
+        ]
+        if item_pillar:
+            props.append({"name": "pillar-ref", "value": f"component-{item_pillar}"})
+        cd["components"].append({
+            "uuid": str(uuid.uuid4()),
+            "type": "software",
+            "title": _nonempty(stack_item.get("name", item_id)),
+            "description": _nonempty(
+                stack_item.get("description", ""),
+                f"UIAO core stack component for {item_pillar} pillar" if item_pillar else f"UIAO core stack component {item_id}",
+            ),
+            "props": props,
+            "remarks": "Sourced from core-stack.yml",
+            "control-implementations": [],
+        })
+
     # Add FedRAMP 20x core_mappings as a capability
     if core_mappings:
         cap_reqs = []
