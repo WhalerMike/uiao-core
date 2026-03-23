@@ -3,6 +3,7 @@
 Provides command-line interface for OSCAL document generation,
 validation, and canon management.
 """
+
 from __future__ import annotations
 
 from pathlib import Path

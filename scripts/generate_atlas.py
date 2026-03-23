@@ -5,31 +5,32 @@ Renders Atlas docs from YAML data + Jinja2 templates (.j2).
 Copies images from assets/images/ to docs/images/ for MkDocs.
 """
 
+import os
+import re
+import shutil
 import warnings
+
+import yaml
+from jinja2 import Environment, FileSystemLoader
+
 warnings.warn(
     "scripts/generate_atlas.py is deprecated. Use `uiao generate-atlas` instead.",
     DeprecationWarning,
     stacklevel=1,
 )
 
-import os
-import re
-import yaml
-import shutil
-from jinja2 import Environment, FileSystemLoader
-
 # --- CONFIGURATION ---
-DATA_DIR = 'data'
-TEMPLATE_DIR = 'templates'
-OUTPUT_DIR = 'docs'
-IMAGE_SRC = 'assets/images'
-IMAGE_DEST = os.path.join(OUTPUT_DIR, 'images')
+DATA_DIR = "data"
+TEMPLATE_DIR = "templates"
+OUTPUT_DIR = "docs"
+IMAGE_SRC = "assets/images"
+IMAGE_DEST = os.path.join(OUTPUT_DIR, "images")
 
 
 def normalize_key(value):
     """Filter to convert hyphens to underscores for Jinja2 variable safety."""
     if isinstance(value, str):
-        return re.sub(r'-', '_', value)
+        return re.sub(r"-", "_", value)
     return value
 
 
@@ -46,7 +47,7 @@ def copy_assets():
     if os.path.exists(IMAGE_SRC):
         count = 0
         for filename in os.listdir(IMAGE_SRC):
-            if filename.endswith(('.png', '.jpg', '.svg')):
+            if filename.endswith((".png", ".jpg", ".svg")):
                 shutil.copy2(os.path.join(IMAGE_SRC, filename), IMAGE_DEST)
                 count += 1
         print(f"✅ {count} assets copied to {IMAGE_DEST}")
@@ -60,27 +61,27 @@ def load_data():
 
     # Load all YAML files from data/
     for filename in os.listdir(DATA_DIR):
-        if filename.endswith(('.yml', '.yaml')):
-            key = filename.rsplit('.', 1)[0].replace('-', '_')
+        if filename.endswith((".yml", ".yaml")):
+            key = filename.rsplit(".", 1)[0].replace("-", "_")
             path = os.path.join(DATA_DIR, filename)
-            with open(path, 'r') as f:
+            with open(path) as f:
                 loaded = yaml.safe_load(f)
                 if loaded:
                     data[key] = loaded
 
     # Extract diagrams for direct template access (diagrams.unified_arch etc.)
-    if 'diagrams' in data:
-        diag = data['diagrams']
+    if "diagrams" in data:
+        diag = data["diagrams"]
         # If diagrams are nested under a 'diagrams' key, flatten
-        if isinstance(diag, dict) and 'diagrams' in diag:
-            data['diagrams'] = diag['diagrams']
+        if isinstance(diag, dict) and "diagrams" in diag:
+            data["diagrams"] = diag["diagrams"]
 
     # Extract atlas-appendices for template access
-    if 'atlas_appendices' in data:
-        atlas = data['atlas_appendices']
-        if isinstance(atlas, dict) and 'appendices' in atlas:
-            normalized = {normalize_key(k): v for k, v in atlas['appendices'].items()}
-            data['appendices'] = normalized
+    if "atlas_appendices" in data:
+        atlas = data["atlas_appendices"]
+        if isinstance(atlas, dict) and "appendices" in atlas:
+            normalized = {normalize_key(k): v for k, v in atlas["appendices"].items()}
+            data["appendices"] = normalized
 
     return data
 
@@ -94,18 +95,18 @@ def run_pipeline():
 
     # Setup Jinja2
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
-    env.filters['normalize'] = normalize_key
+    env.filters["normalize"] = normalize_key
 
     # Atlas template manifest (.j2 -> .md)
     manifest = {
-        'index.j2': 'index.md',
-        'architecture.j2': 'architecture.md',
-        'appendices.j2': 'appendices.md',
-        'telemetry.j2': 'telemetry.md',
-        'logic.j2': 'logic.md',
-        'comparison.j2': 'comparison.md',
-        'scaling.j2': 'scaling.md',
-        'roadmap.j2': 'roadmap.md',
+        "index.j2": "index.md",
+        "architecture.j2": "architecture.md",
+        "appendices.j2": "appendices.md",
+        "telemetry.j2": "telemetry.md",
+        "logic.j2": "logic.md",
+        "comparison.j2": "comparison.md",
+        "scaling.j2": "scaling.md",
+        "roadmap.j2": "roadmap.md",
     }
 
     success = 0
@@ -115,7 +116,7 @@ def run_pipeline():
             template = env.get_template(template_name)
             output_path = os.path.join(OUTPUT_DIR, output_name)
 
-            with open(output_path, 'w') as f:
+            with open(output_path, "w") as f:
                 f.write(template.render(all_context))
             print(f"🚀 Generated: {output_path}")
             success += 1

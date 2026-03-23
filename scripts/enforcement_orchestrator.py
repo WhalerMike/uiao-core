@@ -1,26 +1,26 @@
+import logging
+import os
 import warnings
+
+import requests
+
 warnings.warn(
     "scripts/enforcement_orchestrator.py is deprecated. Use `uiao` CLI instead.",
     DeprecationWarning,
     stacklevel=1,
 )
 
-import os
-import requests
-import logging
-import argparse
-
 # --- Configuration ---
 # Cisco vManage (SD-WAN)
-VMANAGE_URL = os.getenv('VMANAGE_URL')
-VMANAGE_USER = os.getenv('VMANAGE_USER')
-VMANAGE_PASS = os.getenv('VMANAGE_PASS')
+VMANAGE_URL = os.getenv("VMANAGE_URL")
+VMANAGE_USER = os.getenv("VMANAGE_USER")
+VMANAGE_PASS = os.getenv("VMANAGE_PASS")
 
 # Palo Alto Panorama
-PANORAMA_URL = os.getenv('PANORAMA_URL')
-PAN_API_KEY = os.getenv('PANORAMA_API_KEY')
+PANORAMA_URL = os.getenv("PANORAMA_URL")
+PAN_API_KEY = os.getenv("PANORAMA_API_KEY")
 
-logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
 class NetworkEnforcer:
@@ -31,7 +31,7 @@ class NetworkEnforcer:
         """Authenticates with vManage using j_security_check."""
         sess = requests.Session()
         url = f"{VMANAGE_URL}/j_security_check"
-        data = {'j_username': VMANAGE_USER, 'j_password': VMANAGE_PASS}
+        data = {"j_username": VMANAGE_USER, "j_password": VMANAGE_PASS}
         sess.post(url, data=data, verify=False)  # GCC-Moderate usually uses internal CAs
         return sess
 
@@ -41,13 +41,9 @@ class NetworkEnforcer:
         or apply a specific security policy tag.
         """
         logging.info(f"SD-WAN: Applying quarantine policy to {ip_address}")
-        endpoint = f"{VMANAGE_URL}/dataservice/ext-api/v1/policy/enforcement"
-        payload = {
-            "ip": ip_address,
-            "action": "deny",
-            "tag": "Atlas-Quarantine"
-        }
-        # res = self.vmanage_session.post(endpoint, json=payload)
+        _endpoint = f"{VMANAGE_URL}/dataservice/ext-api/v1/policy/enforcement"
+        _payload = {"ip": ip_address, "action": "deny", "tag": "Atlas-Quarantine"}
+        # res = self.vmanage_session.post(_endpoint, json=_payload)
         return True
 
     def update_palo_alto_dag(self, ip_address, action="add"):
@@ -61,14 +57,10 @@ class NetworkEnforcer:
         else:
             cmd = f"<uid-message><type>update</type><payload><unregister><entry ip='{ip_address}'><tag><member>{tag}</member></tag></entry></unregister></payload></uid-message>"
 
-        url = f"https://{PANORAMA_URL}/api/"
-        params = {
-            "type": "user-id",
-            "cmd": cmd,
-            "key": PAN_API_KEY
-        }
+        _url = f"https://{PANORAMA_URL}/api/"
+        _params = {"type": "user-id", "cmd": cmd, "key": PAN_API_KEY}
         logging.info(f"Palo Alto: {action.upper()}ing {ip_address} to DAG: {tag}")
-        # res = requests.post(url, params=params, verify=False)
+        # res = requests.post(_url, params=_params, verify=False)
         return True
 
 
