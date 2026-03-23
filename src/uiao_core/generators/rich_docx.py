@@ -7,18 +7,19 @@ properly formatted compliance tables.
 
 References: ADR-0004
 """
-# isort: skip_file
 from __future__ import annotations
 
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
+# isort: off
 from docx import Document
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Inches, Pt, RGBColor
+# isort: on
 try:
     from docxtpl import DocxTemplate
     HAS_DOCXTPL = True
@@ -161,7 +162,7 @@ def _add_evidence_table(doc: Document) -> None:
 
 def _build_from_scratch(context: dict, visuals_dir: Path) -> Document:
     """Build a complete styled DOCX programmatically."""
-    doc = Document()
+    doc = cast(Any, Document())
     lb = context.get("leadership_briefing", {})
     if not isinstance(lb, dict):
         lb = {}
