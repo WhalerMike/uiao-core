@@ -2,6 +2,13 @@
 
 Welcome to the authoritative guide for the agency's infrastructure transformation. The **uiao-core** initiative replaces legacy, fragmented silos with a unified, programmable architecture.
 
+## End-to-End Pipeline Demo
+
+![uiao generate-all demo](./images/demo.gif)
+
+> Run `uiao generate-all` once — YAML canon → OSCAL artifacts, DOCX, PPTX, and
+> compliance charts, all validated and committed automatically.
+
 ## Mission-to-Tech Alignment
 Our modernization strategy is built to deliver three primary outcomes: **Agility**, **Security**, and **Compliance**.
 

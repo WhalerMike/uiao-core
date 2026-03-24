@@ -57,6 +57,15 @@ This pipeline solves the #1 pain in federal cloud modernization: keeping 10-15 d
 
 **Live Demo**: https://whalermike.github.io/uiao-core/
 
+## End-to-End Demo
+
+![uiao generate-all demo](docs/images/demo.gif)
+
+> The animation above shows `uiao generate-all` running from the YAML canon to
+> fully generated outputs: OSCAL artifacts (SSP, Component Definition, POA&M),
+> a rich DOCX report, PPTX pitch deck, and CISA ZT Maturity charts — all in one
+> command.
+
 ## Canon
 
 - `canon/uiao_leadership_briefing_v1.0.yaml`
@@ -237,7 +246,7 @@ git submodule update --init --recursive
 
 ### Roadmap
 
-- [ ] Demo GIF showing end-to-end pipeline flow
+- [x] Demo GIF showing end-to-end pipeline flow
 - [x] Vendor-neutral abstraction layer (move Entra/Cisco specifics to overlays)
 - [ ] Continuous monitoring hooks (Sentinel telemetry -> POA&M status updates)
 - [ ] Inventory linking in SSP (from core-stack.yml)
