@@ -24,3 +24,7 @@ class Settings(BaseSettings):
     exports_dir: Path = Path("exports")
     schemas_dir: Path = Path("schemas")
     compliance_dir: Path = Path("compliance")
+
+    # LRU cache configuration
+    cache_size: int = 128
+    cache_ttl: float = 0.0  # seconds; 0 means no TTL

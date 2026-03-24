@@ -11,6 +11,7 @@ from typing import Any
 
 import yaml
 
+from uiao_core.cache import cached, get_default_cache
 from uiao_core.config import Settings
 
 
@@ -75,6 +76,9 @@ def load_canon(
 ) -> dict[str, Any]:
     """Load a canon YAML file and return its contents as a dict.
 
+    Results are cached using the module-level LRU cache so repeated calls
+    with the same resolved path are served from memory.
+
     Args:
         canon_path: Path to the canon YAML file. Defaults to
             ``settings.canon_dir / 'uiao_leadership_briefing_v1.0.yaml'``.
@@ -86,5 +90,12 @@ def load_canon(
     if canon_path is None:
         canon_path = settings.canon_dir / "uiao_leadership_briefing_v1.0.yaml"
     canon_path = Path(canon_path)
-    with canon_path.open("r", encoding="utf-8") as f:
+
+    _load_canon_cached = cached(get_default_cache())(_load_canon_from_disk)
+    return _load_canon_cached(str(canon_path.resolve()))
+
+
+def _load_canon_from_disk(resolved_path: str) -> dict[str, Any]:
+    """Internal: read a canon YAML from *resolved_path* (cache key)."""
+    with Path(resolved_path).open("r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}

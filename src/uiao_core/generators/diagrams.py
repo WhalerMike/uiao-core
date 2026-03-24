@@ -16,6 +16,7 @@ from typing import Any
 
 import yaml
 
+from uiao_core.cache import cached, get_default_cache
 from uiao_core.generators.mermaid import render_mermaid_file
 from uiao_core.utils.context import get_settings
 
@@ -34,6 +35,9 @@ def load_diagrams_canon(
 ) -> dict[str, Any]:
     """Load and return the ``diagrams`` section from the canon YAML.
 
+    Results are cached using the module-level LRU cache so repeated calls
+    with the same resolved path are served from memory.
+
     Args:
         canon_path: Path to ``diagrams.yaml``. Defaults to
             ``<project_root>/canon/diagrams.yaml``.
@@ -51,12 +55,17 @@ def load_diagrams_canon(
         logger.warning("Diagrams canon not found: %s", canon_path)
         return {}
 
-    with canon_path.open("r", encoding="utf-8") as fh:
-        data = yaml.safe_load(fh) or {}
+    _load_cached = cached(get_default_cache())(_load_diagrams_canon_from_disk)
+    return _load_cached(str(canon_path.resolve()))
 
+
+def _load_diagrams_canon_from_disk(resolved_path: str) -> dict[str, Any]:
+    """Internal: read diagrams section from *resolved_path* (cache key)."""
+    with Path(resolved_path).open("r", encoding="utf-8") as fh:
+        data = yaml.safe_load(fh) or {}
     diagrams: dict[str, Any] = data.get("diagrams", {})
     if not diagrams:
-        logger.warning("No 'diagrams' section found in %s", canon_path)
+        logger.warning("No 'diagrams' section found in %s", resolved_path)
     return diagrams
 
 

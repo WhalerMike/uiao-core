@@ -269,10 +269,31 @@ def generate_diagrams(
         "--force-visuals",
         help="Force regeneration of all visuals (ignore cache).",
     ),
+    cache_size: int = typer.Option(
+        0,
+        "--cache-size",
+        help="LRU cache size (0 = use default from settings).",
+    ),
+    cache_ttl: float = typer.Option(
+        0.0,
+        "--cache-ttl",
+        help="LRU cache TTL in seconds (0 = no expiry).",
+    ),
 ) -> None:
     """Generate Mermaid .mermaid files and render them to PNG from canon YAML."""
+    from uiao_core.cache import UiaoLRUCache, reset_default_cache
     from uiao_core.generators.diagrams import generate_diagrams_from_canon
     from uiao_core.generators.mermaid import render_all_mermaid
+
+    if cache_size > 0 or cache_ttl > 0:
+        import uiao_core.cache as _cache_mod
+
+        _cache_mod._default_cache = UiaoLRUCache(
+            maxsize=cache_size if cache_size > 0 else 128,
+            ttl=cache_ttl if cache_ttl > 0 else None,
+        )
+    else:
+        reset_default_cache()
 
     console.print(f"[bold]Generating diagrams from {canon_path}...[/bold]")
     rendered = generate_diagrams_from_canon(
@@ -324,13 +345,34 @@ def generate_docs(
         "--force-visuals",
         help="Force regeneration of all visuals (ignore cache).",
     ),
+    cache_size: int = typer.Option(
+        0,
+        "--cache-size",
+        help="LRU cache size (0 = use default from settings).",
+    ),
+    cache_ttl: float = typer.Option(
+        0.0,
+        "--cache-ttl",
+        help="LRU cache TTL in seconds (0 = no expiry).",
+    ),
 ) -> None:
     """Render Jinja2 templates into Markdown docs using canon YAML and data files.
 
     Automatically generates diagrams from canon/diagrams.yaml before rendering
     templates (unless --skip-diagrams is set).
     """
+    from uiao_core.cache import UiaoLRUCache, reset_default_cache
     from uiao_core.generators.docs import build_docs
+
+    if cache_size > 0 or cache_ttl > 0:
+        import uiao_core.cache as _cache_mod
+
+        _cache_mod._default_cache = UiaoLRUCache(
+            maxsize=cache_size if cache_size > 0 else 128,
+            ttl=cache_ttl if cache_ttl > 0 else None,
+        )
+    else:
+        reset_default_cache()
 
     if not skip_diagrams:
         console.print("[bold]Auto-generating diagrams from canon/diagrams.yaml...[/bold]")
