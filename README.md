@@ -6,6 +6,8 @@
 [![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](https://github.com/WhalerMike/uiao-core/releases)
 [![OSCAL Validation](https://img.shields.io/badge/OSCAL%20Validation-Passing-green)](https://pages.nist.gov/OSCAL/)
 
+![UIAO Core pipeline demo](assets/demo.svg)
+
 **UIAO Core** - A FedRAMP Moderate / 20x-aligned modernization pipeline that turns a single YAML canon into synchronized leadership documents **and** machine-readable OSCAL artifacts.
 
 ## FedRAMP Pilot Quickstart (5 minutes)
@@ -199,7 +201,7 @@ git submodule update --init --recursive
 
 ### Roadmap
 
-- [ ] Demo GIF showing end-to-end pipeline flow
+- [x] Demo GIF showing end-to-end pipeline flow
 - [ ] Vendor-neutral abstraction layer (move Entra/Cisco specifics to overlays)
 - [ ] Continuous monitoring hooks (Sentinel telemetry -> POA&M status updates)
 - [ ] Inventory linking in SSP (from core-stack.yml)

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="440"
+     viewBox="0 0 680 440" role="img"
+     aria-label="UIAO Core end-to-end pipeline demo: uiao generate-all">
+  <title>UIAO Core: end-to-end pipeline demo (uiao generate-all)</title>
+
+  <!-- ── terminal chrome ──────────────────────────────────────────────── -->
+  <rect width="680" height="440" rx="10" fill="#0d1117"/>
+  <rect width="680" height="38" rx="10" fill="#161b22"/>
+  <rect y="28"  width="680" height="10" fill="#161b22"/>
+  <line x1="0" y1="38" x2="680" y2="38" stroke="#21262d" stroke-width="1"/>
+
+  <!-- traffic-light dots -->
+  <circle cx="22" cy="19" r="6" fill="#ff5f57"/>
+  <circle cx="42" cy="19" r="6" fill="#febc2e"/>
+  <circle cx="62" cy="19" r="6" fill="#28c840"/>
+
+  <!-- title bar label -->
+  <text x="340" y="23" font-size="12" fill="#8b949e" text-anchor="middle"
+        font-family="'Segoe UI',Helvetica,Arial,sans-serif">uiao-core — bash</text>
+
+  <!-- ── animated terminal lines (SMIL, 36-second loop) ───────────────── -->
+  <!--
+    keyTimes pattern for each line:
+      0 ; appear_start ; appear_end ; fade_start ; fade_end ; 1
+    values:  0 ; 0 ; 1 ; 1 ; 0 ; 0
+
+    All lines hold until t=32 s (0.8889) then fade to 0 by t=34 s (0.9444).
+    A 2-second blank completes the loop.
+  -->
+
+  <!-- l1  ❯ uiao generate-all  t=0.5 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.0139;0.0278;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="60" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#60a5fa">❯</tspan><tspan fill="#4ade80"> uiao generate-all</tspan>
+    </text>
+  </g>
+
+  <!-- l3  Loading canon...  t=2.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.0556;0.0694;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="90" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#8b949e">  Loading canon: </tspan><tspan fill="#fbbf24">canon/uiao_leadership_briefing_v1.0.yaml</tspan>
+    </text>
+  </g>
+
+  <!-- l4  ✓ Canon loaded  t=3.5 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.0972;0.1111;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="110" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">Canon loaded (OSCAL 1.0.4 · FedRAMP Moderate)</tspan>
+    </text>
+  </g>
+
+  <!-- l6  Generating OSCAL artifacts...  t=5.5 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.1528;0.1667;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="140" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace"
+          fill="#60a5fa">Generating OSCAL artifacts...</text>
+  </g>
+
+  <!-- l7  ✓ Component Definition  t=7.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.1944;0.2083;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="160" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">Component Definition   </tspan><tspan fill="#475569">→ </tspan><tspan fill="#fbbf24">exports/oscal/uiao-component-definition.json</tspan>
+    </text>
+  </g>
+
+  <!-- l8  ✓ SSP Skeleton  t=8.5 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.2361;0.25;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="180" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">SSP Skeleton           </tspan><tspan fill="#475569">→ </tspan><tspan fill="#fbbf24">exports/oscal/uiao-ssp-skeleton.json</tspan>
+    </text>
+  </g>
+
+  <!-- l9  ✓ POA&M Template  t=10.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.2778;0.2917;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="200" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">POA&amp;M Template         </tspan><tspan fill="#475569">→ </tspan><tspan fill="#fbbf24">exports/oscal/uiao-poam-template.json</tspan>
+    </text>
+  </g>
+
+  <!-- l11  Generating DOCX documents...  t=12.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.3333;0.3472;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="230" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace"
+          fill="#60a5fa">Generating DOCX documents...</text>
+  </g>
+
+  <!-- l12  ✓ Leadership Briefing  t=13.5 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.375;0.3889;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="250" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">Leadership Briefing    </tspan><tspan fill="#475569">→ </tspan><tspan fill="#fbbf24">exports/docx/leadership-briefing.docx</tspan>
+    </text>
+  </g>
+
+  <!-- l13  ✓ TIC 3.0 Roadmap  t=15.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.4167;0.4306;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="270" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">TIC 3.0 Roadmap        </tspan><tspan fill="#475569">→ </tspan><tspan fill="#fbbf24">exports/docx/tic3-roadmap.docx</tspan>
+    </text>
+  </g>
+
+  <!-- l14  ✓ Zero Trust Narrative  t=16.5 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.4583;0.4722;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="290" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">Zero Trust Narrative   </tspan><tspan fill="#475569">→ </tspan><tspan fill="#fbbf24">exports/docx/zero-trust-narrative.docx</tspan>
+    </text>
+  </g>
+
+  <!-- l16  Generating charts...  t=18.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.5;0.5139;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="320" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace"
+          fill="#60a5fa">Generating charts...</text>
+  </g>
+
+  <!-- l17  ✓ ZT Maturity Radar  t=19.5 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.5417;0.5556;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="340" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">ZT Maturity Radar      </tspan><tspan fill="#475569">→ </tspan><tspan fill="#fbbf24">exports/charts/zt-maturity-radar.png</tspan>
+    </text>
+  </g>
+
+  <!-- l18  ✓ Coverage Matrix  t=21.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.5833;0.5972;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="360" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80">  ✓ </tspan><tspan fill="#c9d1d9">Coverage Matrix        </tspan><tspan fill="#475569">→ </tspan><tspan fill="#fbbf24">exports/charts/coverage-matrix.png</tspan>
+    </text>
+  </g>
+
+  <!-- l20  ✓ Done!  t=23.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.6389;0.6528;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="390" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace">
+      <tspan fill="#4ade80" font-weight="bold">✓ Done!</tspan><tspan fill="#c9d1d9">  26 docs · 3 OSCAL artifacts · 2 charts generated.</tspan>
+    </text>
+  </g>
+
+  <!-- l21  ❯ next prompt  t=25.0 s -->
+  <g opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;1;0;0"
+      keyTimes="0;0.6944;0.7083;0.8889;0.9444;1"
+      dur="36s" repeatCount="indefinite"/>
+    <text x="16" y="410" font-size="13"
+          font-family="'Fira Code','Cascadia Code',Consolas,'Courier New',monospace"
+          fill="#60a5fa">❯</text>
+  </g>
+
+  <!-- cursor block (blinks while prompt is visible, ~25 s – 32 s) -->
+  <rect x="28" y="398" width="8" height="14" fill="#c9d1d9" opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;1;0;1;0;1;0;1;0;1;0;1;0;0;0"
+      keyTimes="0;0.7083;0.7222;0.7361;0.75;0.7639;0.7778;0.7917;0.8056;0.8194;0.8333;0.8472;0.8611;0.875;0.8889;1"
+      dur="36s" repeatCount="indefinite"/>
+  </rect>
+</svg>

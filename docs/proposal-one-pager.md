@@ -17,7 +17,7 @@ UIAO-Core is a YAML-driven document compiler and OSCAL generator for federal IT 
 - Outputs: DOCX/PDF/Markdown + exports/oscal/*.json
 - Automation: GitHub Actions (generate + validate + commit)
 - Live Demo: https://whalermike.github.io/uiao-core/
-- Demo GIF: [Insert GIF link]
+- Demo GIF: https://raw.githubusercontent.com/WhalerMike/uiao-core/main/assets/demo.svg
 
 **Next Steps for Adoption**
 1. Fork/clone repo.
