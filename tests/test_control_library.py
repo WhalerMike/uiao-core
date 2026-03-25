@@ -154,8 +154,179 @@ def test_ia2_narrative_references_piv_cac():
 
 def test_ia2_jinja2_template_variables():
     """Narrative must contain Jinja2 template variables for organization.name
-    and parameters.mfa-requirement."""
+    and parameters['mfa-requirement'] (bracket notation, gold standard)."""
     data = load_yaml(IA2_PATH)
     narrative = data.get("narrative", "")
     assert "{{ organization.name }}" in narrative
-    assert "{{ parameters.mfa-requirement }}" in narrative
+    assert "{{ parameters['mfa-requirement'] }}" in narrative
+
+
+def test_ia2_has_related_controls():
+    data = load_yaml(IA2_PATH)
+    assert "related_controls" in data
+    assert isinstance(data["related_controls"], list)
+    assert len(data["related_controls"]) >= 3
+
+
+def test_ia2_parameters_have_descriptions():
+    data = load_yaml(IA2_PATH)
+    for param in data.get("parameters", []):
+        assert "description" in param, f"Parameter {param.get('id')} missing description"
+        assert len(param["description"]) > 0
+
+
+def test_ia2_narrative_has_bold_section_headers():
+    data = load_yaml(IA2_PATH)
+    narrative = data.get("narrative", "")
+    bold_count = narrative.count("**")
+    # Each bold header uses opening and closing **, so at least 4 headers = 8 occurrences
+    assert bold_count >= 8, "Narrative should have at least 4 bold section headers"
+
+
+# ---------------------------------------------------------------------------
+# SC-12.yml — Cryptographic Key Establishment and Management
+# ---------------------------------------------------------------------------
+
+SC12_PATH = CONTROL_LIBRARY_DIR / "SC-12.yml"
+
+
+def test_sc12_file_exists():
+    assert SC12_PATH.exists(), f"Expected {SC12_PATH} to exist"
+
+
+def test_sc12_yaml_is_valid():
+    data = load_yaml(SC12_PATH)
+    assert isinstance(data, dict)
+
+
+def test_sc12_required_fields():
+    data = load_yaml(SC12_PATH)
+    assert data.get("control_id") == "SC-12"
+    assert data.get("title") == "Cryptographic Key Establishment and Management"
+    assert data.get("status") == "implemented"
+    assert "narrative" in data
+    assert "implemented_by" in data
+    assert "evidence" in data
+    assert "parameters" in data
+    assert "related_controls" in data
+
+
+def test_sc12_implemented_by_contains_key_management():
+    data = load_yaml(SC12_PATH)
+    assert "KeyManagementService" in data["implemented_by"]
+
+
+def test_sc12_evidence_contains_key_inventory():
+    data = load_yaml(SC12_PATH)
+    assert "key-inventory-report" in data["evidence"]
+
+
+def test_sc12_narrative_references_fips_140():
+    narrative = load_yaml(SC12_PATH).get("narrative", "")
+    assert "FIPS 140-2" in narrative
+
+
+def test_sc12_narrative_has_jinja2_org_name():
+    narrative = load_yaml(SC12_PATH).get("narrative", "")
+    assert "{{ organization.name }}" in narrative
+
+
+def test_sc12_narrative_uses_bracket_param_syntax():
+    narrative = load_yaml(SC12_PATH).get("narrative", "")
+    assert "{{ parameters['" in narrative
+
+
+# ---------------------------------------------------------------------------
+# AT-3.yml — Role-Based Training
+# ---------------------------------------------------------------------------
+
+AT3_PATH = CONTROL_LIBRARY_DIR / "AT-3.yml"
+
+
+def test_at3_file_exists():
+    assert AT3_PATH.exists(), f"Expected {AT3_PATH} to exist"
+
+
+def test_at3_yaml_is_valid():
+    data = load_yaml(AT3_PATH)
+    assert isinstance(data, dict)
+
+
+def test_at3_required_fields():
+    data = load_yaml(AT3_PATH)
+    assert data.get("control_id") == "AT-3"
+    assert data.get("title") == "Role-Based Training"
+    assert data.get("status") == "implemented"
+    assert "narrative" in data
+    assert "implemented_by" in data
+    assert "evidence" in data
+    assert "parameters" in data
+    assert "related_controls" in data
+
+
+def test_at3_implemented_by_contains_lms():
+    data = load_yaml(AT3_PATH)
+    assert "LearningManagementSystem" in data["implemented_by"]
+
+
+def test_at3_evidence_contains_training_report():
+    data = load_yaml(AT3_PATH)
+    assert "role-based-training-completion-report" in data["evidence"]
+
+
+def test_at3_narrative_has_jinja2_org_name():
+    narrative = load_yaml(AT3_PATH).get("narrative", "")
+    assert "{{ organization.name }}" in narrative
+
+
+def test_at3_narrative_uses_bracket_param_syntax():
+    narrative = load_yaml(AT3_PATH).get("narrative", "")
+    assert "{{ parameters['" in narrative
+
+
+# ---------------------------------------------------------------------------
+# SI-4.yml — System Monitoring
+# ---------------------------------------------------------------------------
+
+SI4_PATH = CONTROL_LIBRARY_DIR / "SI-4.yml"
+
+
+def test_si4_file_exists():
+    assert SI4_PATH.exists(), f"Expected {SI4_PATH} to exist"
+
+
+def test_si4_yaml_is_valid():
+    data = load_yaml(SI4_PATH)
+    assert isinstance(data, dict)
+
+
+def test_si4_required_fields():
+    data = load_yaml(SI4_PATH)
+    assert data.get("control_id") == "SI-4"
+    assert data.get("title") == "System Monitoring"
+    assert data.get("status") == "implemented"
+    assert "narrative" in data
+    assert "implemented_by" in data
+    assert "evidence" in data
+    assert "parameters" in data
+    assert "related_controls" in data
+
+
+def test_si4_implemented_by_contains_telemetry():
+    data = load_yaml(SI4_PATH)
+    assert "TelemetryPlane" in data["implemented_by"]
+
+
+def test_si4_evidence_contains_siem_report():
+    data = load_yaml(SI4_PATH)
+    assert "siem-alert-summary-report" in data["evidence"]
+
+
+def test_si4_narrative_has_jinja2_org_name():
+    narrative = load_yaml(SI4_PATH).get("narrative", "")
+    assert "{{ organization.name }}" in narrative
+
+
+def test_si4_narrative_uses_bracket_param_syntax():
+    narrative = load_yaml(SI4_PATH).get("narrative", "")
+    assert "{{ parameters['" in narrative

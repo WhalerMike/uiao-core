@@ -14,11 +14,110 @@ implemented_by:
 evidence:
   - mfa-enrollment-report
   - piv-cac-authentication-log
+  - identity-provider-access-report
   - conditional-access-policy-export
 
 parameters:
   - id: mfa-requirement
     description: >-
+      The phishing-resistant MFA mechanism(s) mandated for all organizational
+      users accessing {{ organization.name }} systems, specifying acceptable
+      authenticator types and enforcement scope.
+    value: "{{ parameters['mfa-requirement'] }}"
+  - id: piv-requirement
+    description: >-
+      Policy statement defining which user populations are required to
+      authenticate exclusively via PIV or CAC credentials, including
+      all federal personnel and privileged users.
+    value: "{{ parameters['piv-requirement'] }}"
+  - id: critical-sla-days
+    description: >-
+      Maximum number of calendar days within which a Critical-severity
+      authentication-related finding must be remediated or mitigated
+      following discovery.
+    value: "{{ parameters['critical-sla-days'] }}"
+  - id: high-sla-days
+    description: >-
+      Maximum number of calendar days within which a High-severity
+      authentication-related finding must be remediated or mitigated
+      following discovery.
+    value: "{{ parameters['high-sla-days'] }}"
+
+narrative: |
+  {{ organization.name }} implements IA-2 Identification and Authentication
+  (Organizational Users) in accordance with NIST SP 800-53 Rev 5, ensuring
+  that every organizational user is uniquely identified and authenticated
+  before being granted access to any system resource.  The IdentityProvider
+  and PIVAuthenticationService components jointly enforce this control across
+  all access tiers.
+
+  **Phishing-Resistant Multi-Factor Authentication**
+  All organizational users are required to authenticate using
+  {{ parameters['mfa-requirement'] }} prior to accessing any
+  {{ organization.name }} information system.  The IdentityProvider enforces
+  phishing-resistant MFA mechanisms — including FIDO2 hardware security keys
+  and PIV/CAC smart cards — for all privileged accounts and for all users
+  accessing high-value assets.  Conditional access policies within the
+  IdentityProvider ensure that non-privileged accounts are also subject to
+  phishing-resistant MFA.  Legacy password-only authentication is blocked at
+  the policy enforcement boundary; any authentication attempt that does not
+  satisfy the MFA requirement is rejected and logged.
+
+  **PIV/CAC Enforcement for Federal Personnel**
+  The PIVAuthenticationService enforces {{ parameters['piv-requirement'] }}
+  for all applicable users.  Certificate chains are validated against the
+  Federal PKI (FPKI) trust anchor using Online Certificate Status Protocol
+  (OCSP) and Certificate Revocation List (CRL) checks on every authentication
+  event.  All federal personnel accessing federal systems must present a valid
+  PIV or CAC credential issued by a certified Federal PKI issuer; credentials
+  that fail revocation checks are immediately rejected and the event is
+  escalated to the ISSO.  Authentication events are captured in the
+  piv-cac-authentication-log artifact for continuous-monitoring review.
+
+  **Unique Identification and Account Lifecycle Controls**
+  Shared or group accounts are prohibited across all {{ organization.name }}
+  systems.  Every user is assigned a unique identifier that persists for the
+  duration of the individual's association with the organization and cannot
+  be reused across the system lifecycle.  Account provisioning, modification,
+  and termination follow the joiner-mover-leaver (JML) process enforced by
+  the IdentityProvider, ensuring that authentication credentials are
+  deprovisioned within the approved SLA when a user departs or changes role.
+
+  **Remediation SLAs for Authentication Findings**
+  Authentication-related security findings discovered through vulnerability
+  scans, penetration tests, or continuous-monitoring alerts are subject to
+  SLA-based remediation timelines enforced via the POA&M tracker:
+  - Critical findings: remediated or mitigated within
+    {{ parameters['critical-sla-days'] }} calendar days of discovery.
+  - High findings: remediated or mitigated within
+    {{ parameters['high-sla-days'] }} calendar days of discovery.
+  Overdue findings trigger a Microsoft Sentinel alert routed to the ISSO
+  for escalation and corrective-action documentation.
+
+  **Evidence and Audit Artefacts**
+  - mfa-enrollment-report: A periodic export from the IdentityProvider
+    listing every user, their assigned MFA method, enrollment date, and
+    current status.  Accounts without a compliant MFA enrollment are
+    flagged automatically.
+  - piv-cac-authentication-log: A continuous audit log of all PIV/CAC
+    authentication events, including certificate distinguished name,
+    revocation check outcome, and access decision.
+  - identity-provider-access-report: A monthly report summarising
+    authentication success and failure rates by user population, MFA
+    method, and access tier, available to the 3PAO during assessments.
+
+  All three artefacts satisfy the evidence requirements for IA-2 under the
+  FedRAMP Moderate baseline and are available to {{ organization.name }}'s
+  governance, risk, and compliance (GRC) team via the ConMon dashboard.
+
+related_controls:
+  - IA-5   # Authenticator Management
+  - IA-8   # Identification and Authentication (Non-Organizational Users)
+  - AC-2   # Account Management
+  - AC-3   # Access Enforcement
+  - AC-17  # Remote Access
+  - SC-8   # Transmission Confidentiality and Integrity
+  - SI-4   # System Monitoring
       Specifies the phishing-resistant multi-factor authentication methods
       required for all organizational user accounts before any system
       resource access is granted.

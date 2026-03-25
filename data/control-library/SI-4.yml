@@ -1,0 +1,110 @@
+# NIST SP 800-53 Rev 5 — Control Narrative
+# Control ID : SI-4
+# Title      : System Monitoring
+# Schema     : data/control-library (uiao-core canonical format)
+
+control_id: SI-4
+title: System Monitoring
+status: implemented
+
+implemented_by:
+  - TelemetryPlane
+  - SecurityInformationAndEventManagement
+  - IncidentResponsePlatform
+
+evidence:
+  - siem-alert-summary-report
+  - continuous-monitoring-dashboard-export
+  - intrusion-detection-event-log
+
+parameters:
+  - id: monitoring-coverage-threshold
+    description: >-
+      Minimum percentage of in-scope system components — including endpoints,
+      servers, network devices, and cloud workloads — that must be enrolled
+      in continuous telemetry collection and SIEM ingestion at any given time.
+    value: "{{ parameters['monitoring-coverage-threshold'] }}"
+  - id: alert-response-sla
+    description: >-
+      Maximum time from the generation of a high-severity SIEM alert to
+      the initiation of an analyst triage and documented response action,
+      expressed as a duration (e.g., "15 minutes", "1 hour").
+    value: "{{ parameters['alert-response-sla'] }}"
+
+narrative: |
+  {{ organization.name }} implements SI-4 System Monitoring in accordance with
+  NIST SP 800-53 Rev 5, maintaining continuous visibility into the security
+  posture of all in-scope system components through integrated telemetry
+  collection, automated alerting, and analyst-driven investigation workflows.
+  The TelemetryPlane, SecurityInformationAndEventManagement (SIEM), and
+  IncidentResponsePlatform collectively enforce this control.
+
+  **Continuous Telemetry Collection**
+  The TelemetryPlane ingests security-relevant events from all in-scope
+  endpoints, servers, network devices, cloud workloads, and identity systems.
+  Telemetry sources include host-based agents (EDR), cloud audit logs,
+  network flow data, DNS query logs, and authentication events from the
+  IdentityProvider.  {{ organization.name }} maintains a minimum monitoring
+  coverage of {{ parameters['monitoring-coverage-threshold'] }} of in-scope
+  components; any component that falls below active telemetry collection
+  triggers an automated gap alert routed to the ISSO.  Raw telemetry is
+  normalized and forwarded to the SIEM for correlation and retention in
+  accordance with the system's log-retention policy.
+
+  **SIEM Correlation and Alerting**
+  The SecurityInformationAndEventManagement platform applies a curated
+  detection rule set — incorporating MITRE ATT&CK-aligned analytics,
+  FedRAMP-required event categories, and {{ organization.name }}-specific
+  threat intelligence — to the normalized telemetry stream.  Correlated
+  events that match a detection rule generate prioritised alerts routed to
+  the security operations team.  High- and Critical-severity alerts require
+  an initial triage and documented response action within
+  {{ parameters['alert-response-sla'] }} of generation; compliance with this
+  SLA is tracked in the siem-alert-summary-report artifact.
+
+  **Intrusion Detection and Anomaly Analysis**
+  The TelemetryPlane includes signature-based and behavioural intrusion
+  detection capabilities that monitor east-west and north-south network
+  traffic for indicators of compromise (IOCs), command-and-control (C2)
+  beaconing, lateral movement, and data exfiltration patterns.  Behavioural
+  baselines are re-computed on a rolling basis; deviations that exceed
+  statistical thresholds automatically create intrusion-detection events in
+  the IncidentResponsePlatform, which are captured in the
+  intrusion-detection-event-log artifact.  {{ organization.name }} subscribes
+  to government threat-intelligence feeds (CISA AIS, FS-ISAC) and ingests
+  current IOC feeds into the SIEM detection rule set on a daily basis.
+
+  **Incident Response Integration**
+  When the SIEM or TelemetryPlane generates a confirmed security event, the
+  IncidentResponsePlatform automatically creates a tracked incident record
+  with the relevant telemetry evidence pre-attached.  Incident records follow
+  the {{ organization.name }} incident response playbook, enforcing consistent
+  documentation of triage findings, containment actions, eradication steps,
+  and lessons learned.  Incidents that cannot be fully resolved within the
+  approved SLA are escalated to the ISSO and documented in the POA&M tracker
+  for corrective-action tracking.
+
+  **Evidence and Audit Artefacts**
+  - siem-alert-summary-report: A monthly report summarising all SIEM alerts
+    by severity, detection category, and response-SLA compliance, including
+    mean-time-to-detect (MTTD) and mean-time-to-respond (MTTR) metrics.
+  - continuous-monitoring-dashboard-export: A periodic snapshot of the ConMon
+    dashboard showing current Key Security Indicator (KSI) values, telemetry
+    coverage percentages, and open high-severity findings against the
+    {{ organization.name }} authorization boundary.
+  - intrusion-detection-event-log: A continuous audit log of all intrusion
+    detection events, including event type, affected component, IOC match
+    details, analyst disposition, and remediation tracking reference.
+
+  All artefacts are available to the 3PAO during annual assessments and
+  continuous-monitoring reviews, satisfying the evidence requirements for
+  SI-4 under the FedRAMP Moderate baseline.
+
+related_controls:
+  - SI-2   # Flaw Remediation
+  - SI-3   # Malicious Code Protection
+  - AU-2   # Event Logging
+  - AU-6   # Audit Record Review, Analysis, and Reporting
+  - IR-4   # Incident Handling
+  - RA-5   # Vulnerability Monitoring and Scanning
+  - SC-7   # Boundary Protection
