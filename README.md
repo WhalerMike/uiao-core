@@ -5,6 +5,23 @@ Modernizing federal systems with machine-readable Zero Trust and FedRAMP complia
 
 ---
 
+## What's New
+
+### Control Library Expansion (March 2026)
+
+Four production-grade control narratives have been added or upgraded in `data/control-library/`:
+
+| Control | Title | Change |
+|---|---|---|
+| **IA-2** | Identification and Authentication (Organizational Users) | Upgraded to gold standard — bracket-notation Jinja2 params, `description` fields, bold section headers, `related_controls` |
+| **SC-12** | Cryptographic Key Establishment and Management | New — FIPS 140-2 HSM key lifecycle, rotation SLAs, dual-control procedures |
+| **AT-3** | Role-Based Training | New — LMS-enforced role curricula, completion windows, privileged-role attestation |
+| **SI-4** | System Monitoring | New — continuous telemetry, SIEM correlation/alerting, intrusion detection, ConMon dashboard |
+
+All new files follow the AT-2 gold-standard schema (`control_id`, `title`, `status`, `implemented_by`, `evidence`, `parameters` with descriptions, `narrative` with bold section headers and Jinja2 variables, `related_controls`).
+
+---
+
 ## End-to-End Demo
 
 ![UIAO generate-all demo](assets/demo.svg)

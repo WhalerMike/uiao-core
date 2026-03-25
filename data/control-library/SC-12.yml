@@ -1,0 +1,105 @@
+# NIST SP 800-53 Rev 5 — Control Narrative
+# Control ID : SC-12
+# Title      : Cryptographic Key Establishment and Management
+# Schema     : data/control-library (uiao-core canonical format)
+
+control_id: SC-12
+title: Cryptographic Key Establishment and Management
+status: implemented
+
+implemented_by:
+  - KeyManagementService
+  - EncryptionGateway
+  - TelemetryPlane
+
+evidence:
+  - key-inventory-report
+  - key-rotation-audit-log
+  - hsm-attestation-certificate
+
+parameters:
+  - id: key-rotation-frequency
+    description: >-
+      Maximum age of a cryptographic key before it must be rotated, expressed
+      as a time interval (e.g., "90 days", "1 year").  Applies to all symmetric
+      data-encryption keys and asymmetric signing keys in the key inventory.
+    value: "{{ parameters['key-rotation-frequency'] }}"
+  - id: key-escrow-policy
+    description: >-
+      Policy statement governing whether and under what conditions cryptographic
+      keys may be escrowed, backed up, or shared with a third-party key-recovery
+      authority, including applicable legal and compliance requirements.
+    value: "{{ parameters['key-escrow-policy'] }}"
+
+narrative: |
+  {{ organization.name }} implements SC-12 Cryptographic Key Establishment and
+  Management in accordance with NIST SP 800-53 Rev 5 and NIST SP 800-57
+  (Recommendation for Key Management), ensuring that cryptographic keys are
+  generated, distributed, stored, accessed, retired, and destroyed in a
+  consistent and auditable manner throughout their lifecycle.  The
+  KeyManagementService, EncryptionGateway, and TelemetryPlane collectively
+  enforce this control across all encryption domains.
+
+  **Key Generation and Algorithm Standards**
+  All cryptographic keys used within {{ organization.name }} systems are
+  generated using FIPS 140-2 validated modules and approved algorithms as
+  specified in NIST SP 800-131A: AES-256 for symmetric encryption, RSA-4096
+  or ECDSA P-384 for asymmetric operations, and SHA-384 or SHA-512 for
+  hashing.  Keys are generated inside hardware security modules (HSMs)
+  managed by the KeyManagementService; key material never exists in plaintext
+  outside the HSM boundary.  Each newly generated key is bound to a metadata
+  record specifying its algorithm, intended use, owning system, and expiry date.
+
+  **Key Distribution and Access Controls**
+  Keys are distributed to authorised consuming services via encrypted,
+  authenticated channels managed by the KeyManagementService.  Access to
+  key material is governed by role-based policies: only the EncryptionGateway
+  and explicitly authorised workloads may request key unwrap operations, and
+  every such request is subject to mutual TLS authentication and logged.
+  {{ organization.name }} enforces separation of duties such that personnel
+  who administer the KeyManagementService cannot also approve key-usage policy
+  changes; dual-control procedures apply to all root-key operations.
+
+  **Key Rotation and Lifecycle Management**
+  Active cryptographic keys are rotated on a {{ parameters['key-rotation-frequency'] }}
+  schedule.  The KeyManagementService tracks each key's creation date and
+  expiry, generates automated rotation tasks in advance of expiry, and
+  terminates old key versions after a configurable post-rotation overlap
+  period to allow in-flight operations to complete gracefully.  Rotation
+  events are captured in the key-rotation-audit-log artifact.  Emergency
+  key rotation is triggered automatically when a key is suspected of
+  compromise or when the associated HSM module raises an integrity alert.
+
+  **Key Storage and Hardware Security Module Controls**
+  All key material is stored exclusively within FIPS 140-2 Level 3 validated
+  HSMs operated by the KeyManagementService.  HSMs are physically secured,
+  tamper-evident, and subject to periodic attestation; the current attestation
+  certificate is exported as the hsm-attestation-certificate evidence artifact.
+  Backup copies of key material follow {{ parameters['key-escrow-policy'] }};
+  any backup is encrypted under a separate key-encryption key (KEK) stored in
+  a geographically distinct HSM partition and subject to the same access
+  controls as the primary key store.
+
+  **Evidence and Audit Artefacts**
+  - key-inventory-report: A periodic export from the KeyManagementService
+    listing all active keys, their algorithm, owning system, creation date,
+    expiry date, and rotation status.  Keys approaching expiry or overdue for
+    rotation are flagged for ISSO review.
+  - key-rotation-audit-log: A continuous audit log of all key generation,
+    rotation, revocation, and destruction events, including the initiating
+    identity, timestamp, and HSM attestation token for each operation.
+  - hsm-attestation-certificate: The current FIPS 140-2 validation certificate
+    and periodic attestation output for each HSM module operated within the
+    {{ organization.name }} environment, confirming module integrity.
+
+  All artefacts are available to the 3PAO during annual assessments and
+  continuous-monitoring reviews, satisfying the evidence requirements for
+  SC-12 under the FedRAMP Moderate baseline.
+
+related_controls:
+  - SC-8   # Transmission Confidentiality and Integrity
+  - SC-13  # Cryptographic Protection
+  - SC-28  # Protection of Information at Rest
+  - IA-2   # Identification and Authentication (Organizational Users)
+  - IA-5   # Authenticator Management
+  - SA-9   # External System Services

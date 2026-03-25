@@ -1,0 +1,100 @@
+# NIST SP 800-53 Rev 5 — Control Narrative
+# Control ID : AT-3
+# Title      : Role-Based Training
+# Schema     : data/control-library (uiao-core canonical format)
+
+control_id: AT-3
+title: Role-Based Training
+status: implemented
+
+implemented_by:
+  - LearningManagementSystem
+  - IdentityProvider
+
+evidence:
+  - role-based-training-completion-report
+  - privileged-role-training-attestation
+
+parameters:
+  - id: role-training-completion-window
+    description: >-
+      Maximum number of calendar days after a user is assigned to a
+      privileged or specialized role within which the corresponding
+      role-based training curriculum must be completed in the LMS.
+    value: "{{ parameters['role-training-completion-window'] }}"
+  - id: role-training-renewal-frequency
+    description: >-
+      Interval at which personnel in privileged or specialized roles must
+      renew their role-based training certification to maintain currency
+      with evolving threats, technologies, and organizational policies.
+    value: "{{ parameters['role-training-renewal-frequency'] }}"
+
+narrative: |
+  {{ organization.name }} implements AT-3 Role-Based Training in accordance
+  with NIST SP 800-53 Rev 5, ensuring that personnel with assigned security
+  roles — including system administrators, security operations analysts, cloud
+  infrastructure engineers, ISSOs, and developers — receive training tailored
+  to the specific threats, responsibilities, and technical competencies
+  relevant to their function.  The LearningManagementSystem (LMS) and
+  IdentityProvider jointly enforce this control.
+
+  **Role Identification and Curriculum Assignment**
+  The IdentityProvider maintains an authoritative mapping of user accounts to
+  security-relevant roles.  When a user is assigned to a privileged or
+  specialized role, the IdentityProvider publishes a provisioning event to the
+  LearningManagementSystem, which automatically enrolls the user in the
+  corresponding role-based training curriculum.  Role-based curricula are
+  maintained by the ISSO in collaboration with functional leads and reviewed
+  annually to ensure coverage of current threats, updated STIG/CIS guidance,
+  and lessons learned from POA&M findings.
+
+  **Training Completion Requirements**
+  Personnel newly assigned to a specialized role must complete the applicable
+  role-based training curriculum within
+  {{ parameters['role-training-completion-window'] }} days of assignment.
+  Training completion is tracked in real time by the
+  LearningManagementSystem; accounts with overdue training are automatically
+  flagged in the ConMon dashboard and escalated to the user's supervisor and
+  the ISSO for corrective action.  Role-based training is renewed on a
+  {{ parameters['role-training-renewal-frequency'] }} basis, and renewal
+  completion is a prerequisite for continued access to privileged functions.
+
+  **Curriculum Content by Role Category**
+  Role-based training curricula are designed to address the specific security
+  responsibilities and risk profile of each role category:
+  - System Administrators and Cloud Engineers: secure configuration management,
+    hardening procedures (DISA STIG / CIS Benchmark), change-control workflows,
+    and incident response technical procedures.
+  - Security Operations Analysts: threat detection and hunt techniques, SIEM
+    alert triage, malware analysis fundamentals, and evidence preservation.
+  - Developers: secure software development lifecycle (SSDLC), OWASP Top 10
+    mitigations, secrets management, and supply-chain security.
+  - ISSOs and Compliance Personnel: FedRAMP continuous-monitoring requirements,
+    OSCAL artifact maintenance, POA&M management, and 3PAO coordination.
+  Each curriculum includes a post-completion assessment; a passing score is
+  required before the LMS marks the training as complete.
+
+  **Evidence and Audit Artefacts**
+  - role-based-training-completion-report: A periodic export from the
+    LearningManagementSystem listing every user assigned to a specialized role,
+    their curriculum module assignments, completion dates, assessment scores,
+    and current compliance status.  The export is cryptographically signed and
+    stored in the evidence repository.
+  - privileged-role-training-attestation: A quarterly attestation signed by
+    each privileged-role user's direct supervisor confirming that the user's
+    role-based training remains current and that the user's responsibilities
+    have not changed in a way that would require additional training.
+
+  Both artefacts are available to the 3PAO during annual assessments and
+  continuous-monitoring reviews, satisfying the evidence requirements for
+  AT-3 under the FedRAMP Moderate baseline and are surfaced in
+  {{ organization.name }}'s ConMon dashboard alongside Key Security
+  Indicators (KSIs).
+
+related_controls:
+  - AT-2   # Literacy Training and Awareness
+  - AT-4   # Training Records
+  - PL-4   # Rules of Behaviour
+  - PS-7   # External Personnel Security
+  - IR-2   # Incident Response Training
+  - AC-6   # Least Privilege
