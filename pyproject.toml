@@ -59,7 +59,7 @@ dev = [
     "pytest-cov>=4.0",
     "ruff>=0.4.0",
     "mypy>=1.10.0",
-    "pre-commit>=3.7.0",
+    "pre-commit>=4.5.1",
 ]
 visuals = [
     "google-genai>=1.0.0",
