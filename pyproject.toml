@@ -41,7 +41,7 @@ dependencies = [
 
     "compliance-trestle>=4.0.0",
     "compliance-trestle-fedramp",
-    "pydantic>=2.8.0",
+    "pydantic>=2.13.0",
     "pydantic-settings>=2.0",
     "typer[all]>=0.12.3",
     "rich>=13.7.0",
