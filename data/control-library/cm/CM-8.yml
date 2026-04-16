@@ -63,3 +63,10 @@ automation:
   method: Azure Resource Graph sync, CrowdStrike asset discovery, Intune inventory
   frequency: continuous
   evidence_artifact: servicenow-cmdb-inventory-report
+ksi:
+  ksi_id: KSI-CM-08
+  ksi_title: System Component Inventory
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-08.yaml

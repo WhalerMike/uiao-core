@@ -93,3 +93,10 @@ related_controls:
   - AC-7    # Unsuccessful Logon Attempts
   - AU-2    # Event Logging
   - SI-4    # System Monitoring
+ksi:
+  ksi_id: KSI-IA-02
+  ksi_title: Identification and Authentication
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-02.yaml

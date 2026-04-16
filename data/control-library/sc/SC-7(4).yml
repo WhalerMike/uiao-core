@@ -79,3 +79,10 @@ related_controls:
   - CA-3    # Information Exchange
   - SI-4    # System Monitoring
   - AC-4    # Information Flow Enforcement
+ksi:
+  ksi_id: KSI-SC-07
+  ksi_title: Boundary Protection
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-07.yaml

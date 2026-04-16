@@ -62,3 +62,10 @@ automation:
   method: FIPS compliance enforcement, Defender for Cloud crypto assessment
   frequency: continuous
   evidence_artifact: azure-cryptographic-compliance-dashboard
+ksi:
+  ksi_id: KSI-SC-13
+  ksi_title: Cryptographic Protection
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-13.yaml

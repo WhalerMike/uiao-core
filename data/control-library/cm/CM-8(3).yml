@@ -96,3 +96,10 @@ related_controls:
   - CA-7    # Continuous Monitoring
   - IR-4    # Incident Handling
   - SI-4    # System Monitoring
+ksi:
+  ksi_id: KSI-CM-08
+  ksi_title: System Component Inventory
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-08.yaml

@@ -70,3 +70,10 @@ related_controls:
   - AU-12  # Audit Record Generation
   - IR-4   # Incident Handling
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AU-03
+  ksi_title: Content of Audit Records
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-03.yaml

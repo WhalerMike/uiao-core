@@ -90,3 +90,10 @@ related_controls:
   - CM-3   # Configuration Change Control
   - IR-4   # Incident Handling
   - AC-6   # Least Privilege
+ksi:
+  ksi_id: KSI-AU-12
+  ksi_title: Audit Record Generation
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-12.yaml

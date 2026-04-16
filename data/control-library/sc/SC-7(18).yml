@@ -80,3 +80,10 @@ related_controls:
   - SI-4    # System Monitoring
   - IR-4    # Incident Handling
   - SC-7(3) # Access Points
+ksi:
+  ksi_id: KSI-SC-07
+  ksi_title: Boundary Protection
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-07.yaml

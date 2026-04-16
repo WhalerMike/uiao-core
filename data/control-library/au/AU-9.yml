@@ -75,3 +75,10 @@ related_controls:
   - AU-6   # Audit Record Review, Analysis, and Reporting
   - SC-28  # Protection of Information at Rest
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AU-09
+  ksi_title: Protection of Audit Information
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-09.yaml

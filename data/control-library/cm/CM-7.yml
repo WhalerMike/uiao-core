@@ -65,3 +65,10 @@ automation:
   method: Application whitelisting, CrowdStrike prevention policies, Azure Policy
   frequency: continuous
   evidence_artifact: intune-application-control-compliance-report
+ksi:
+  ksi_id: KSI-CM-07
+  ksi_title: Least Functionality
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-07.yaml

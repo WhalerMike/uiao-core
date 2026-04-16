@@ -94,3 +94,10 @@ related_controls:
   - CM-7   # Least Functionality
   - CA-7   # Continuous Monitoring
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-CM-06
+  ksi_title: Configuration Settings
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-06.yaml

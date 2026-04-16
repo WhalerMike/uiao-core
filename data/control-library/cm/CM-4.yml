@@ -63,3 +63,10 @@ automation:
   method: Change impact assessment workflow, Azure DevOps test pipelines
   frequency: per-change
   evidence_artifact: servicenow-change-impact-analysis-records
+ksi:
+  ksi_id: KSI-CM-04
+  ksi_title: Impact Analyses
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-04.yaml

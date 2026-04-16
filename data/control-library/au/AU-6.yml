@@ -20,3 +20,10 @@ evidence:
 related_controls:
   - AU-2
   - SI-4
+ksi:
+  ksi_id: KSI-AU-06
+  ksi_title: "Audit Record Review, Analysis, and Reporting"
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-06.yaml

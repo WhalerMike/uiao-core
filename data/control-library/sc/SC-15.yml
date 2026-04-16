@@ -78,3 +78,10 @@ related_controls:
   - SI-4    # System Monitoring
   - PL-4    # Rules of Behavior
   - AC-11   # Device Lock
+ksi:
+  ksi_id: KSI-SC-15
+  ksi_title: Collaborative Computing Devices and Applications
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-15.yaml

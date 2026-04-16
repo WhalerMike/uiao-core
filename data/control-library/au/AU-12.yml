@@ -58,3 +58,10 @@ automation:
   method: Diagnostic settings, CEF/Syslog connectors, API ingestion
   frequency: continuous
   evidence_artifact: sentinel-audit-generation-dashboard
+ksi:
+  ksi_id: KSI-AU-12
+  ksi_title: Audit Record Generation
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-12.yaml

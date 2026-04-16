@@ -64,3 +64,10 @@ related_controls:
     - AU-6   # Audit Record Review, Analysis, and Reporting
     - CM-3   # Configuration Change Control
     - CM-5   # Access Restrictions for Change
+ksi:
+  ksi_id: KSI-AC-05
+  ksi_title: Separation of Duties
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-05.yaml

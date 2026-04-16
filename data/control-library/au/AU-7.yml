@@ -61,3 +61,10 @@ automation:
   method: KQL analytics rules, Sentinel workbooks, Logic App playbooks
   frequency: continuous
   evidence_artifact: sentinel-audit-reduction-workbooks
+ksi:
+  ksi_id: KSI-AU-07
+  ksi_title: Audit Record Reduction and Report Generation
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-07.yaml

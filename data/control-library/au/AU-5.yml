@@ -72,3 +72,10 @@ related_controls:
   - CP-2   # Contingency Plan
   - IR-4   # Incident Handling
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AU-05
+  ksi_title: Response to Audit Logging Process Failures
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-05.yaml

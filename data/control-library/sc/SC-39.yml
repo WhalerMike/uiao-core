@@ -79,3 +79,10 @@ related_controls:
   - SC-18   # Mobile Code
   - CM-6    # Configuration Settings
   - SI-16   # Memory Protection
+ksi:
+  ksi_id: KSI-SC-39
+  ksi_title: Process Isolation
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-39.yaml

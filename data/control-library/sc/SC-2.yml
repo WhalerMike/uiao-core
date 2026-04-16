@@ -66,3 +66,10 @@ automation:
   method: NSG segmentation, PIM role separation, CyberArk PSM isolation
   frequency: continuous
   evidence_artifact: network-segmentation-compliance-report
+ksi:
+  ksi_id: KSI-SC-02
+  ksi_title: Separation of System and User Functionality
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-02.yaml

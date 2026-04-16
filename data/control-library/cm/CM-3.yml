@@ -21,3 +21,10 @@ evidence:
 related_controls:
   - CM-2
   - SC-7
+ksi:
+  ksi_id: KSI-CM-03
+  ksi_title: Configuration Change Control
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-03.yaml

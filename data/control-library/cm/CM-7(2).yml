@@ -91,3 +91,10 @@ related_controls:
   - SI-3   # Malicious Code Protection
   - IR-4   # Incident Handling
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-CM-07
+  ksi_title: Least Functionality
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-07.yaml

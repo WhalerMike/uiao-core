@@ -96,3 +96,10 @@ related_controls:
   - RA-2   # Security Categorization
   - SC-28  # Protection of Information at Rest
   - CA-7   # Continuous Monitoring
+ksi:
+  ksi_id: KSI-CM-12
+  ksi_title: Information Location
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-12.yaml

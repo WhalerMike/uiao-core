@@ -87,3 +87,10 @@ related_controls:
   - AC-6    # Least Privilege
   - AU-2    # Event Logging
   - AU-12   # Audit Record Generation
+ksi:
+  ksi_id: KSI-AC-02
+  ksi_title: Account Management
+  category: iam
+  family: AC
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ac-02.yaml

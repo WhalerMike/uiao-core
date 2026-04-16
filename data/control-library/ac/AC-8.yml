@@ -69,3 +69,10 @@ related_controls:
     - AU-2   # Event Logging
     - AU-11  # Audit Record Retention
     - PL-4   # Rules of Behavior
+ksi:
+  ksi_id: KSI-AC-08
+  ksi_title: System Use Notification
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-08.yaml

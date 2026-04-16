@@ -72,3 +72,10 @@ related_controls:
   - CM-6   # Configuration Settings
   - IR-4   # Incident Handling
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AU-08
+  ksi_title: Time Stamps
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-08.yaml

@@ -64,3 +64,10 @@ related_controls:
   - IA-2   # Identification and Authentication
   - IA-3   # Device Identification and Authentication
   - SC-7   # Boundary Protection
+ksi:
+  ksi_id: KSI-AC-14
+  ksi_title: Permitted Actions Without Identification or Authentication
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-14.yaml

@@ -62,3 +62,10 @@ automation:
   method: DLP policies, Azure storage encryption, memory isolation
   frequency: continuous
   evidence_artifact: purview-dlp-shared-resource-compliance-report
+ksi:
+  ksi_id: KSI-SC-04
+  ksi_title: Information in Shared System Resources
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-04.yaml

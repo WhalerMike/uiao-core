@@ -61,3 +61,10 @@ automation:
   method: Policy lifecycle management, change workflow governance
   frequency: annual-review
   evidence_artifact: configuration-management-policy-document
+ksi:
+  ksi_id: KSI-CM-01
+  ksi_title: Configuration Management Policy and Procedures
+  category: configuration-management
+  family: CM
+  severity: low
+  rule_path: rules/ksi/configuration-management/ksi-cm-01.yaml

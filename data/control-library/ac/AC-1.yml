@@ -21,3 +21,10 @@ evidence:
 related_controls:
   - AC-2
   - AC-3
+ksi:
+  ksi_id: KSI-AC-01
+  ksi_title: Access Control Policy and Procedures
+  category: iam
+  family: AC
+  severity: low
+  rule_path: rules/ksi/iam/ksi-ac-01.yaml

@@ -88,3 +88,10 @@ related_controls:
   - SA-10  # Developer Configuration Management
   - CA-7   # Continuous Monitoring
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-CM-03
+  ksi_title: Configuration Change Control
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-03.yaml

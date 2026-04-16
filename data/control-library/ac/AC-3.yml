@@ -20,3 +20,10 @@ evidence:
 related_controls:
   - AC-2
   - AC-3
+ksi:
+  ksi_id: KSI-AC-03
+  ksi_title: Access Enforcement
+  category: iam
+  family: AC
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ac-03.yaml

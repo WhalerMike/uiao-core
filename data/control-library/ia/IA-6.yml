@@ -65,3 +65,10 @@ related_controls:
   - AC-6   # Least Privilege
   - CM-6   # Configuration Settings
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-IA-06
+  ksi_title: Authentication Feedback
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-06.yaml

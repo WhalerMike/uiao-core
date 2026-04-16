@@ -90,3 +90,10 @@ related_controls:
   - SA-4  # Acquisition Process
   - SC-7  # Boundary Protection
   - SI-4  # System Monitoring
+ksi:
+  ksi_id: KSI-IA-03
+  ksi_title: Device Identification and Authentication
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-03.yaml

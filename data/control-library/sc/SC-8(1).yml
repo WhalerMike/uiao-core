@@ -81,3 +81,10 @@ related_controls:
   - SC-28(1) # Cryptographic Protection at Rest
   - IA-5    # Authenticator Management
   - AC-17   # Remote Access
+ksi:
+  ksi_id: KSI-SC-08
+  ksi_title: Transmission Confidentiality and Integrity
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-08.yaml

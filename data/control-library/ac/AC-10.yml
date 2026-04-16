@@ -73,3 +73,10 @@ related_controls:
     - AU-6   # Audit Record Review
     - IA-2   # Identification and Authentication
     - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AC-10
+  ksi_title: Concurrent Session Control
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-10.yaml

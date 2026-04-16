@@ -73,3 +73,10 @@ related_controls:
   - IA-8   # Identification and Authentication (Non-Organizational Users)
   - CA-7   # Continuous Monitoring
   - PM-1   # Information Security Program Plan
+ksi:
+  ksi_id: KSI-IA-01
+  ksi_title: Identification and Authentication Policy and Procedures
+  category: iam
+  family: IA
+  severity: low
+  rule_path: rules/ksi/iam/ksi-ia-01.yaml

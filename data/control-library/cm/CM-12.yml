@@ -93,3 +93,10 @@ related_controls:
   - SC-28  # Protection of Information at Rest
   - CA-3   # Information Exchange
   - AC-4   # Information Flow Enforcement
+ksi:
+  ksi_id: KSI-CM-12
+  ksi_title: Information Location
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-12.yaml

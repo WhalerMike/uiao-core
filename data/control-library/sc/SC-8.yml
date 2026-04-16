@@ -21,3 +21,10 @@ evidence:
 related_controls:
   - AC-2
   - AC-3
+ksi:
+  ksi_id: KSI-SC-08
+  ksi_title: Transmission Confidentiality and Integrity
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-08.yaml

@@ -14,6 +14,11 @@ python -m pip install -r tools\requirements.txt
 | Tool | Purpose | Typical invocation |
 |---|---|---|
 | `sync_canon.py` | Cross-repo sync: reads both adapter registries + schema, scans `uiao-docs` customer-documentation tree, reports drift, scaffolds missing folders. | `python tools/sync_canon.py --core-root . --docs-root ../uiao-docs --scaffold` |
+| `verify_canon_sync_roundtrip.py` | Validate `CANON_SYNC_DISPATCH_TOKEN` PAT (scopes + expiration) and registry dispatch-readiness. Used by `canon-sync-pat-check.yml` weekly and on-demand after rotation. | `CANON_SYNC_DISPATCH_TOKEN=xxx python tools/verify_canon_sync_roundtrip.py` |
+| `link_ksi_to_controls.py` | Inject `ksi:` cross-references into `data/control-library/<family>/*.yml` by reading `rules/ksi/uiao-control-to-ksi-mapping.yaml`. Idempotent, scoped to AC/SC/IA/AU/CM by default. | `python tools/link_ksi_to_controls.py --check-only` |
+| `report_control_library.py` | Regenerate `data/control-library/control_library_report.md` with family breakdown, KSI-coverage %, and SCuBA-importer readiness flag. | `python tools/report_control_library.py` |
+| `auth/` (package) | v1.1 credential resolver scaffold — `ServiceAccountProvider` (current), `OAuth2ClientCredentialsProvider` and `MTLSClientProvider` (agency cutover). Profiles keyed by target system in `config/auth.yaml`. Example at `config/auth.example.yaml`. | `from tools.auth import resolve_credentials, load_auth_config` |
+| `bridge/` (package) | Sentinel → Logic App webhook bridge. `parse_incident_payload` normalises the incident JSON, `deliver` POSTs (with optional HMAC signature) via a pluggable `LogicAppTransport`. `StubTransport` keeps CI runnable before the agency Logic App is provisioned. | `from tools.bridge import run_bridge, StubTransport` |
 | `metadata_validator.py` | Schema-validates YAML/JSON frontmatter across canon artifacts. | (existing — see file header) |
 | `drift_detector.py` | Scans for metadata drift between canon and working artifacts. | (existing — see file header) |
 | `appendix_indexer.py` | Indexes appendix artifacts for dashboard + publishing. | (existing — see file header) |
@@ -107,6 +112,21 @@ Both workflows use the same secret — a GitHub Personal Access Token with cross
 ### Rotation
 
 When the PAT expires, regenerate and update the secret in both repos. The workflows pick up the new secret automatically on next run.
+
+**Automated validation:** `canon-sync-pat-check.yml` runs weekly (Mondays, 07:00 UTC) and on manual dispatch. It invokes `tools/verify_canon_sync_roundtrip.py`, which:
+
+1. Calls `GET /user` with the PAT and reads `github-authentication-token-expiration` to report days remaining (warns if <14d).
+2. Probes `/repos/{owner}/{repo}` + Contents/Actions/Pulls read endpoints on both `uiao-core` and `uiao-docs`.
+3. Runs `sync_canon.py --check-only` locally to confirm the registries are schema-valid and therefore safe to dispatch.
+
+Run it locally after rotating the PAT to confirm the new token is wired correctly:
+
+```powershell
+$env:CANON_SYNC_DISPATCH_TOKEN = "ghp_new_token_value"
+python tools\verify_canon_sync_roundtrip.py
+```
+
+Exit codes: `0` = healthy, `1` = at least one check failed (token missing scope, near expiration, or registries fail schema validation), `2` = prerequisites missing (no token in env). The GitHub workflow surfaces the same report as a step summary + artifact (`canon-sync-pat-report`) and fails the job on non-zero exit.
 
 ### Manual re-sync
 

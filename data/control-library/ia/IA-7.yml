@@ -69,3 +69,10 @@ related_controls:
   - SC-12  # Cryptographic Key Establishment and Management
   - CM-6   # Configuration Settings
   - AU-2   # Event Logging
+ksi:
+  ksi_id: KSI-IA-07
+  ksi_title: Cryptographic Module Authentication
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-07.yaml
