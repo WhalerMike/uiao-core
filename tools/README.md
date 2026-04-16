@@ -53,8 +53,8 @@ The frontmatter block is **generated from canon** and regenerated whenever the r
 ### Running locally
 
 ```powershell
-# Both repos checked out side by side at C:\Users\whale
-cd C:\Users\whale\uiao-core
+# Both repos checked out side by side at C:\Users\whale\src
+cd C:\Users\whale\src\uiao-core
 python tools\sync_canon.py --core-root . --docs-root ..\uiao-docs --check-only
 ```
 
