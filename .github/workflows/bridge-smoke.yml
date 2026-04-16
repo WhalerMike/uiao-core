@@ -1,0 +1,95 @@
+name: Bridge smoke — Sentinel → Logic App
+
+# Keeps the Sentinel → Logic App webhook bridge verified before the agency
+# Logic App is provisioned. Runs the pytest suite for the bridge package
+# plus a fixture-driven end-to-end smoke test using the in-memory
+# `StubTransport`, so no real Logic App URL is ever contacted.
+#
+# Fires on PRs that touch the bridge code, pushes to main, and on a daily
+# schedule so dependency or Python-version drift surfaces independently.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/bridge/**'
+      - 'tests/fixtures/sentinel_incidents/**'
+      - 'tests/test_sentinel_bridge.py'
+      - '.github/workflows/bridge-smoke.yml'
+  pull_request:
+    paths:
+      - 'tools/bridge/**'
+      - 'tests/fixtures/sentinel_incidents/**'
+      - 'tests/test_sentinel_bridge.py'
+      - '.github/workflows/bridge-smoke.yml'
+  schedule:
+    # Daily at 06:15 UTC — independent signal when nothing else has changed.
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+    inputs:
+      min-severity:
+        description: "Pipeline minimum severity gate"
+        required: false
+        default: "medium"
+      enable-hmac:
+        description: "Populate UIAO_BRIDGE_HMAC_SECRET for this run"
+        required: false
+        default: "false"
+
+concurrency:
+  group: bridge-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: pytest + fixture smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install pinned tooling deps
+        run: python3 -m pip install --quiet -r tools/requirements.txt pytest
+
+      - name: Run bridge unit tests
+        run: python3 -m pytest tests/test_sentinel_bridge.py -v
+
+      - name: Run fixture smoke (no HMAC)
+        run: |
+          python3 tools/bridge/smoke.py \
+            --fixture-dir tests/fixtures/sentinel_incidents \
+            --min-severity "${{ inputs.min-severity || 'medium' }}"
+
+      - name: Run fixture smoke (with HMAC)
+        if: inputs.enable-hmac == 'true' || github.event_name != 'workflow_dispatch'
+        env:
+          # A non-secret literal is fine here: this is a *test* HMAC that
+          # only signs stub traffic; real Logic Apps use a rotating secret
+          # in vault-backed configuration.
+          UIAO_BRIDGE_HMAC_SECRET: smoke-test-hmac-do-not-use-in-prod
+        run: |
+          python3 tools/bridge/smoke.py \
+            --fixture-dir tests/fixtures/sentinel_incidents \
+            --min-severity "${{ inputs.min-severity || 'medium' }}"
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Bridge smoke result"
+            echo ""
+            echo "- Ran pytest suite: \`tests/test_sentinel_bridge.py\`"
+            echo "- Ran fixture smoke: \`tools/bridge/smoke.py\`"
+            echo "- Min severity: \`${{ inputs.min-severity || 'medium' }}\`"
+            echo ""
+            echo "StubTransport never contacts a real Logic App. Replace with HttpTransport once the agency URL is provisioned."
+          } >> "$GITHUB_STEP_SUMMARY"

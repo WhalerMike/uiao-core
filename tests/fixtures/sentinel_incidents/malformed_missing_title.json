@@ -1,0 +1,13 @@
+{
+  "_expect": {
+    "parse_failure": true
+  },
+  "payload": {
+    "object": {
+      "properties": {
+        "severity": "High",
+        "status": "new"
+      }
+    }
+  }
+}
