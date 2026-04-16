@@ -39,3 +39,10 @@ related_controls:
   - AC-2  # Account Management
   - AC-6  # Least Privilege
   - IA-2  # Identification and Authentication
+ksi:
+  ksi_id: KSI-AT-03
+  ksi_title: Role-Based Security Training
+  category: other
+  family: AT
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-at-03.yaml

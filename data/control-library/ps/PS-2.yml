@@ -44,3 +44,10 @@ related_controls:
   - PS-3  # Personnel Screening
   - AC-2  # Account Management
   - AC-5  # Separation of Duties
+ksi:
+  ksi_id: KSI-PS-02
+  ksi_title: Position Risk Designation
+  category: planning-personnel
+  family: PS
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ps-02.yaml

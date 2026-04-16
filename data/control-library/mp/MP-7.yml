@@ -54,3 +54,10 @@ related_controls:
   - AC-3  # Access Enforcement
   - CM-7  # Least Functionality
   - SC-28 # Protection of Information at Rest
+ksi:
+  ksi_id: KSI-MP-07
+  ksi_title: Media Use
+  category: planning-personnel
+  family: MP
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-mp-07.yaml

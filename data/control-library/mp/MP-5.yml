@@ -53,3 +53,10 @@ related_controls:
   - MP-4  # Media Storage
   - SC-8  # Transmission Confidentiality and Integrity
   - SC-28 # Protection of Information at Rest
+ksi:
+  ksi_id: KSI-MP-05
+  ksi_title: Media Transport
+  category: planning-personnel
+  family: MP
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-mp-05.yaml

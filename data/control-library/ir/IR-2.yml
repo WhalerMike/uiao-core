@@ -62,3 +62,10 @@ automation:
   method: Learning management tracking, training compliance reporting
   frequency: annual
   evidence_artifact: incident-response-training-completion-records
+ksi:
+  ksi_id: KSI-IR-02
+  ksi_title: Incident Response Training
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-02.yaml

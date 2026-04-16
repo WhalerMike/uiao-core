@@ -86,3 +86,10 @@ related_controls:
   - IR-4(1) # Automated Incident Handling Processes
   - IR-8   # Incident Response Plan
   - AU-2   # Event Logging
+ksi:
+  ksi_id: KSI-IR-06
+  ksi_title: Incident Reporting
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-06.yaml

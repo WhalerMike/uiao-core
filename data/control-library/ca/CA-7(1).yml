@@ -75,3 +75,10 @@ related_controls:
   - CA-5   # Plan of Action and Milestones
   - CA-6   # Authorization
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-CA-07
+  ksi_title: Continuous Monitoring
+  category: other
+  family: CA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-ca-07.yaml

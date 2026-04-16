@@ -21,3 +21,10 @@ evidence:
 related_controls:
   - CP-4
   - IR-5
+ksi:
+  ksi_id: KSI-IR-04
+  ksi_title: Incident Handling
+  category: incident-response
+  family: IR
+  severity: critical
+  rule_path: rules/ksi/incident-response/ksi-ir-04.yaml

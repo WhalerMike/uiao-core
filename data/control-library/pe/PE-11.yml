@@ -26,3 +26,10 @@ related_controls:
   - PE-9  # Power Equipment and Cabling
   - PE-10  # Emergency Shutoff
   - CP-7  # Alternate Processing Site
+ksi:
+  ksi_id: KSI-PE-11
+  ksi_title: Emergency Power
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-11.yaml

@@ -65,3 +65,10 @@ automation:
   method: SOAR playbook testing, simulated alert injection
   frequency: annual
   evidence_artifact: incident-response-test-after-action-report
+ksi:
+  ksi_id: KSI-IR-03
+  ksi_title: Incident Response Testing
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-03.yaml

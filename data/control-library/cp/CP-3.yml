@@ -60,3 +60,10 @@ automation:
   method: Learning management tracking, training compliance reporting
   frequency: annual
   evidence_artifact: contingency-training-completion-records
+ksi:
+  ksi_id: KSI-CP-03
+  ksi_title: Contingency Training
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-03.yaml

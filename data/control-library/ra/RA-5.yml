@@ -84,3 +84,10 @@ related_controls:
   - SI-2   # Flaw Remediation
   - CM-8   # System Component Inventory
   - SA-11  # Developer Testing and Evaluation
+ksi:
+  ksi_id: KSI-RA-05
+  ksi_title: Vulnerability Monitoring and Scanning
+  category: other
+  family: RA
+  severity: critical
+  rule_path: rules/ksi/other/ksi-ra-05.yaml

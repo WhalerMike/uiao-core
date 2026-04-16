@@ -141,8 +141,14 @@ def render_report(stats: dict, generated: str) -> str:
         "## Next Steps",
     ])
     if priority_pct >= scuba_threshold:
-        lines.append("- Priority-family coverage met — SCuBA importer (Phase 1) is unblocked.")
-        lines.append("- Extend KSI linkage to the remaining families (MA, MP, PE, PL, PS, RA, SA, SI, AT, CA, CP, IR).")
+        if coverage_pct >= 100.0:
+            lines.append("- Full-tree KSI coverage achieved — every control file carries a canonical `ksi:` pointer.")
+            lines.append("- Keep `tools/link_ksi_to_controls.py --check-only` in CI to prevent regression as new controls land.")
+        else:
+            lines.append("- Priority-family coverage met — SCuBA importer (Phase 1) is unblocked.")
+            missing = [f for f in FAMILY_ORDER if (stats["families"].get(f, {}).get("count", 0)
+                                                    > stats["families"].get(f, {}).get("ksi_linked", 0))]
+            lines.append(f"- Extend KSI linkage to the remaining families ({', '.join(missing)}).")
     else:
         lines.append("- Focus KSI rule population on AC, SC, IA, AU, and CM families first.")
         lines.append(f"- Aim for >{scuba_threshold:.0f}% priority-family KSI coverage before starting SCuBA importer (Phase 1).")

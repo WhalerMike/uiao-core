@@ -82,3 +82,10 @@ related_controls:
   - RA-5   # Vulnerability Monitoring and Scanning
   - PM-9   # Risk Management Strategy
   - CA-5   # Plan of Action and Milestones
+ksi:
+  ksi_id: KSI-RA-03
+  ksi_title: Risk Assessment
+  category: other
+  family: RA
+  severity: high
+  rule_path: rules/ksi/other/ksi-ra-03.yaml

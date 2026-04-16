@@ -85,3 +85,10 @@ related_controls:
   - CP-7   # Alternate Processing Site
   - CP-4(1) # Contingency Plan Testing: Coordinate with Related Plans
   - SC-7   # Boundary Protection
+ksi:
+  ksi_id: KSI-CP-08
+  ksi_title: Telecommunications Services
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-08.yaml

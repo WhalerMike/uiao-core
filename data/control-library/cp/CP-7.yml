@@ -63,3 +63,10 @@ automation:
   method: Automated VM failover, paired region replication
   frequency: continuous
   evidence_artifact: azure-site-recovery-failover-test-report
+ksi:
+  ksi_id: KSI-CP-07
+  ksi_title: Alternate Processing Site
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-07.yaml

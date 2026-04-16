@@ -52,3 +52,10 @@ related_controls:
   - MP-4  # Media Storage
   - AC-3  # Access Enforcement
   - AU-6  # Audit Record Review
+ksi:
+  ksi_id: KSI-MP-02
+  ksi_title: Media Access
+  category: planning-personnel
+  family: MP
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-mp-02.yaml

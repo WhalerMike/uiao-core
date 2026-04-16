@@ -92,3 +92,10 @@ related_controls:
   - CP-2    # Contingency Plan
   - PL-11   # Baseline Tailoring
   - SA-15   # Development Process, Standards, and Tools
+ksi:
+  ksi_id: KSI-RA-09
+  ksi_title: Criticality Analysis
+  category: other
+  family: RA
+  severity: high
+  rule_path: rules/ksi/other/ksi-ra-09.yaml

@@ -61,3 +61,10 @@ automation:
   method: GRS replication, Azure Monitor health checks
   frequency: continuous
   evidence_artifact: azure-storage-replication-health-dashboard
+ksi:
+  ksi_id: KSI-CP-06
+  ksi_title: Alternate Storage Site
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-06.yaml

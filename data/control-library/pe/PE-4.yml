@@ -28,3 +28,10 @@ related_controls:
   - PE-3  # Physical Access Control
   - PE-9  # Power Equipment and Cabling
   - SC-8  # Transmission Confidentiality and Integrity
+ksi:
+  ksi_id: KSI-PE-04
+  ksi_title: Access Control for Transmission
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-04.yaml

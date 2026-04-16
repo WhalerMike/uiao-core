@@ -21,3 +21,10 @@ evidence:
 related_controls:
   - CP-4
   - IR-5
+ksi:
+  ksi_id: KSI-CP-09
+  ksi_title: Information System Backup
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-09.yaml

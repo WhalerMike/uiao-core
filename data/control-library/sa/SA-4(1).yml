@@ -76,3 +76,10 @@ related_controls:
   - SA-9   # External System Services
   - CA-3   # Information Exchange
   - RA-3   # Risk Assessment
+ksi:
+  ksi_id: KSI-SA-04
+  ksi_title: Acquisition Process
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-04.yaml

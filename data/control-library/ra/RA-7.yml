@@ -95,3 +95,10 @@ related_controls:
   - CA-7   # Continuous Monitoring
   - IR-4   # Incident Handling
   - PM-9   # Risk Management Strategy
+ksi:
+  ksi_id: KSI-RA-07
+  ksi_title: Risk Response
+  category: other
+  family: RA
+  severity: high
+  rule_path: rules/ksi/other/ksi-ra-07.yaml

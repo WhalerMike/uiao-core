@@ -87,3 +87,10 @@ related_controls:
   - IR-4   # Incident Handling
   - AU-2   # Event Logging
   - PE-2   # Physical Access Authorizations
+ksi:
+  ksi_id: KSI-MA-05
+  ksi_title: Maintenance Personnel
+  category: planning-personnel
+  family: MA
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ma-05.yaml

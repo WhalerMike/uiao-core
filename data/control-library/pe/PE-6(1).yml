@@ -91,3 +91,10 @@ related_controls:
   - IR-4   # Incident Handling
   - IR-6   # Incident Reporting
   - AU-2   # Event Logging
+ksi:
+  ksi_id: KSI-PE-06
+  ksi_title: Monitoring Physical Access
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-06.yaml

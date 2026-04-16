@@ -65,3 +65,10 @@ related_controls:
     - AT-4   # Training Records
     - PM-1   # Information Security Program Plan
     - PM-2   # Senior Information Security Officer
+ksi:
+  ksi_id: KSI-AT-01
+  ksi_title: Security Awareness and Training Policy and Procedures
+  category: other
+  family: AT
+  severity: low
+  rule_path: rules/ksi/other/ksi-at-01.yaml

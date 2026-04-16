@@ -80,3 +80,10 @@ related_controls:
   - RA-5   # Vulnerability Monitoring and Scanning
   - CA-2   # Security Assessments
   - SI-2   # Flaw Remediation
+ksi:
+  ksi_id: KSI-SA-11
+  ksi_title: Developer Testing and Evaluation
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-11.yaml

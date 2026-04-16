@@ -81,3 +81,10 @@ related_controls:
   - SA-11  # Developer Testing and Evaluation
   - AT-3   # Role-Based Training
   - CM-3   # Configuration Change Control
+ksi:
+  ksi_id: KSI-SA-15
+  ksi_title: "Development Process, Standards, and Tools"
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-15.yaml

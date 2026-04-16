@@ -46,3 +46,10 @@ related_controls:
   - PS-2  # Position Risk Designation
   - PS-4  # Personnel Termination
   - AC-2  # Account Management
+ksi:
+  ksi_id: KSI-PS-03
+  ksi_title: Personnel Screening
+  category: planning-personnel
+  family: PS
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ps-03.yaml

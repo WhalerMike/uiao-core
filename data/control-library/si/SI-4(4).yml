@@ -80,3 +80,10 @@ related_controls:
   - AU-2    # Event Logging
   - IR-4    # Incident Handling
   - SI-4(18) # Analyze Traffic and Covert Exfiltration
+ksi:
+  ksi_id: KSI-SI-04
+  ksi_title: System Monitoring
+  category: monitoring-logging
+  family: SI
+  severity: critical
+  rule_path: rules/ksi/monitoring-logging/ksi-si-04.yaml

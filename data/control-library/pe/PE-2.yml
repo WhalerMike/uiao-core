@@ -36,3 +36,10 @@ related_controls:
   - PE-5  # Access Control for Output Devices
   - PS-4  # Personnel Termination
   - PS-5  # Personnel Transfer
+ksi:
+  ksi_id: KSI-PE-02
+  ksi_title: Physical Access Authorizations
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-02.yaml

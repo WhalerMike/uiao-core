@@ -63,3 +63,10 @@ automation:
   method: Incident routing, knowledge base, vendor escalation workflows
   frequency: continuous
   evidence_artifact: servicenow-incident-assistance-metrics
+ksi:
+  ksi_id: KSI-IR-07
+  ksi_title: Incident Response Assistance
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-07.yaml

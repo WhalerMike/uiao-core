@@ -63,3 +63,10 @@ related_controls:
   - CA-2  # Security Assessments
   - PM-9  # Risk Management Strategy
   - SA-3  # System Development Life Cycle
+ksi:
+  ksi_id: KSI-PL-01
+  ksi_title: Planning Policy and Procedures
+  category: planning-personnel
+  family: PL
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pl-01.yaml

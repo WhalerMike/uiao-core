@@ -63,3 +63,10 @@ automation:
   method: SIEM correlation, threat intelligence integration, SOAR workflows
   frequency: continuous
   evidence_artifact: sentinel-incident-monitoring-dashboard
+ksi:
+  ksi_id: KSI-IR-05
+  ksi_title: Incident Monitoring
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-05.yaml

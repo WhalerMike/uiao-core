@@ -74,3 +74,10 @@ related_controls:
   - PM-7   # Enterprise Architecture
   - SC-7   # Boundary Protection
   - MP-4   # Media Storage
+ksi:
+  ksi_id: KSI-RA-02
+  ksi_title: Security Categorization
+  category: other
+  family: RA
+  severity: high
+  rule_path: rules/ksi/other/ksi-ra-02.yaml

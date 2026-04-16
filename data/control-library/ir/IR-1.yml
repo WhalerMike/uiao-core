@@ -60,3 +60,10 @@ automation:
   method: Incident workflow management, Sentinel SOAR integration
   frequency: annual-review
   evidence_artifact: incident-response-policy-document
+ksi:
+  ksi_id: KSI-IR-01
+  ksi_title: Incident Response Policy and Procedures
+  category: incident-response
+  family: IR
+  severity: low
+  rule_path: rules/ksi/incident-response/ksi-ir-01.yaml

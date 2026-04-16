@@ -63,3 +63,10 @@ related_controls:
   - CA-5  # Plan of Action and Milestones
   - CA-6  # Authorization
   - CA-7  # Continuous Monitoring
+ksi:
+  ksi_id: KSI-PL-02
+  ksi_title: System Security and Privacy Plans
+  category: planning-personnel
+  family: PL
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pl-02.yaml

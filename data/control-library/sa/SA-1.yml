@@ -81,3 +81,10 @@ related_controls:
   - SA-3  # System Development Life Cycle
   - SA-4  # Acquisition Process
   - PM-9  # Risk Management Strategy
+ksi:
+  ksi_id: KSI-SA-01
+  ksi_title: System and Services Acquisition Policy and Procedures
+  category: other
+  family: SA
+  severity: low
+  rule_path: rules/ksi/other/ksi-sa-01.yaml

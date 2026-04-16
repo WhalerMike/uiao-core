@@ -87,3 +87,10 @@ related_controls:
   - AU-2    # Event Logging
   - SC-28   # Protection of Information at Rest
   - SI-12   # Information Management and Retention
+ksi:
+  ksi_id: KSI-MP-06
+  ksi_title: Media Sanitization
+  category: planning-personnel
+  family: MP
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-mp-06.yaml

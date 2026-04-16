@@ -79,3 +79,10 @@ related_controls:
   - CM-8   # System Component Inventory
   - RA-9   # Criticality Analysis
   - CA-7   # Continuous Monitoring
+ksi:
+  ksi_id: KSI-CP-02
+  ksi_title: Contingency Plan
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-02.yaml

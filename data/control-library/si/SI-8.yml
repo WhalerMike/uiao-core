@@ -78,3 +78,10 @@ related_controls:
   - SI-8(2) # Spam Protection - Automatic Updates
   - IR-4    # Incident Handling
   - AT-2    # Literacy Training and Awareness
+ksi:
+  ksi_id: KSI-SI-08
+  ksi_title: Spam Protection
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-08.yaml

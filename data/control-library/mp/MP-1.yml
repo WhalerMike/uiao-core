@@ -56,3 +56,10 @@ related_controls:
   - MP-5  # Media Transport
   - MP-6  # Media Sanitization
   - MP-7  # Media Use
+ksi:
+  ksi_id: KSI-MP-01
+  ksi_title: Media Protection Policy and Procedures
+  category: planning-personnel
+  family: MP
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-mp-01.yaml

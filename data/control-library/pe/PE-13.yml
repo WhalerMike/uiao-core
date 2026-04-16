@@ -26,3 +26,10 @@ related_controls:
   - PE-1  # Physical and Environmental Protection Policy
   - PE-14  # Environmental Controls
   - PE-15  # Water Damage Protection
+ksi:
+  ksi_id: KSI-PE-13
+  ksi_title: Fire Protection
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-13.yaml

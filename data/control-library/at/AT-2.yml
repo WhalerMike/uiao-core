@@ -78,3 +78,10 @@ related_controls:
     - AC-2   # Account Management
     - IR-2   # Incident Response Training
     - PM-13  # Security and Privacy Workforce
+ksi:
+  ksi_id: KSI-AT-02
+  ksi_title: Security Literacy Training
+  category: other
+  family: AT
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-at-02.yaml

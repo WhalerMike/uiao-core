@@ -79,3 +79,10 @@ related_controls:
   - SI-2    # Flaw Remediation
   - CA-7    # Continuous Monitoring
   - IR-4    # Incident Handling
+ksi:
+  ksi_id: KSI-SI-05
+  ksi_title: "Security Alerts, Advisories, and Directives"
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-05.yaml

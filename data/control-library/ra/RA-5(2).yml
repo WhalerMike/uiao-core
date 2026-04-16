@@ -88,3 +88,10 @@ related_controls:
   - CM-8    # System Component Inventory
   - SI-2    # Flaw Remediation
   - AU-2    # Event Logging
+ksi:
+  ksi_id: KSI-RA-05
+  ksi_title: Vulnerability Monitoring and Scanning
+  category: other
+  family: RA
+  severity: critical
+  rule_path: rules/ksi/other/ksi-ra-05.yaml

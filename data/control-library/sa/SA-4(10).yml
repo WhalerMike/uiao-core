@@ -77,3 +77,10 @@ related_controls:
   - SA-4   # Acquisition Process
   - AC-17  # Remote Access
   - CM-6   # Configuration Settings
+ksi:
+  ksi_id: KSI-SA-04
+  ksi_title: Acquisition Process
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-04.yaml

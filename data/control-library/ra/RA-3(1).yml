@@ -93,3 +93,10 @@ related_controls:
   - SR-6   # Supplier Assessments and Reviews
   - CA-5   # Plan of Action and Milestones
   - SI-7   # Software, Firmware, and Information Integrity
+ksi:
+  ksi_id: KSI-RA-03
+  ksi_title: Risk Assessment
+  category: other
+  family: RA
+  severity: high
+  rule_path: rules/ksi/other/ksi-ra-03.yaml

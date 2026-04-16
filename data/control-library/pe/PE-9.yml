@@ -26,3 +26,10 @@ related_controls:
   - PE-4  # Access Control for Transmission
   - PE-10  # Emergency Shutoff
   - PE-11  # Emergency Power
+ksi:
+  ksi_id: KSI-PE-09
+  ksi_title: Power Equipment and Cabling
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-09.yaml

@@ -84,3 +84,10 @@ related_controls:
   - RA-5   # Vulnerability Monitoring and Scanning
   - SC-7   # Boundary Protection
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-CA-08
+  ksi_title: Penetration Testing
+  category: other
+  family: CA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-ca-08.yaml

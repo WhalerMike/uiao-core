@@ -80,3 +80,10 @@ related_controls:
   - CM-11   # User-Installed Software
   - SA-22   # Unsupported System Components
   - RA-5    # Vulnerability Monitoring and Scanning
+ksi:
+  ksi_id: KSI-SI-02
+  ksi_title: Flaw Remediation
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-02.yaml

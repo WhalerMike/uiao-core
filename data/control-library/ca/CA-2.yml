@@ -78,3 +78,10 @@ related_controls:
   - CA-6   # Authorization
   - CA-7   # Continuous Monitoring
   - RA-5   # Vulnerability Monitoring and Scanning
+ksi:
+  ksi_id: KSI-CA-02
+  ksi_title: Security Assessments
+  category: other
+  family: CA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-ca-02.yaml

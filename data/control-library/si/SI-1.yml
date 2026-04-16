@@ -60,3 +60,10 @@ automation:
   method: Version-controlled policy documents, ServiceNow dissemination tracking
   frequency: annual
   evidence_artifact: uiao-si-policy-review-record
+ksi:
+  ksi_id: KSI-SI-01
+  ksi_title: System and Information Integrity Policy and Procedures
+  category: monitoring-logging
+  family: SI
+  severity: low
+  rule_path: rules/ksi/monitoring-logging/ksi-si-01.yaml

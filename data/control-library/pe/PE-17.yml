@@ -31,3 +31,10 @@ related_controls:
   - AC-17  # Remote Access
   - AC-19  # Mobile Device Access Control
   - IA-2  # Identification and Authentication
+ksi:
+  ksi_id: KSI-PE-17
+  ksi_title: Alternate Work Site
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-17.yaml

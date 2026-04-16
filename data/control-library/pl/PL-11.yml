@@ -88,3 +88,10 @@ related_controls:
   - CA-5   # Plan of Action and Milestones
   - CA-7   # Continuous Monitoring
   - RA-3   # Risk Assessment
+ksi:
+  ksi_id: KSI-PL-11
+  ksi_title: Baseline Tailoring
+  category: planning-personnel
+  family: PL
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pl-11.yaml

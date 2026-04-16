@@ -80,3 +80,10 @@ related_controls:
   - SA-12  # Supply Chain Protection
   - IR-6   # Incident Reporting
   - SR-3   # Supply Chain Controls and Processes
+ksi:
+  ksi_id: KSI-SA-04
+  ksi_title: Acquisition Process
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-04.yaml

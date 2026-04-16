@@ -21,3 +21,10 @@ evidence:
 related_controls:
   - AU-2
   - SI-4
+ksi:
+  ksi_id: KSI-SI-04
+  ksi_title: System Monitoring
+  category: monitoring-logging
+  family: SI
+  severity: critical
+  rule_path: rules/ksi/monitoring-logging/ksi-si-04.yaml

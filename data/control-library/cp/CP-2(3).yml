@@ -77,3 +77,10 @@ related_controls:
   - CP-4   # Contingency Plan Testing
   - CP-10  # System Recovery and Reconstitution
   - IR-4   # Incident Handling
+ksi:
+  ksi_id: KSI-CP-02
+  ksi_title: Contingency Plan
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-02.yaml

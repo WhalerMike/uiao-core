@@ -84,3 +84,10 @@ related_controls:
   - CP-4   # Contingency Plan Testing
   - AU-9   # Protection of Audit Information
   - SI-7   # Software, Firmware, and Information Integrity
+ksi:
+  ksi_id: KSI-CP-09
+  ksi_title: Information System Backup
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-09.yaml

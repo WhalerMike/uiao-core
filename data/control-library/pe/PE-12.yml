@@ -22,3 +22,10 @@ related_controls:
   - PE-1  # Physical and Environmental Protection Policy
   - PE-10  # Emergency Shutoff
   - PE-11  # Emergency Power
+ksi:
+  ksi_id: KSI-PE-12
+  ksi_title: Emergency Lighting
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-12.yaml

@@ -85,3 +85,10 @@ related_controls:
   - MP-6    # Media Sanitization
   - SI-4    # System Monitoring
   - CA-7    # Continuous Monitoring
+ksi:
+  ksi_id: KSI-SI-12
+  ksi_title: Information Management and Retention
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-12.yaml
