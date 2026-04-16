@@ -77,3 +77,31 @@ git clone <url> uiao-docs
 ```
 
 No files pre-exist, so no flags needed.
+
+## Migrating old workspace paths
+
+If the sibling repos contain references to an older workspace layout
+(e.g. `C:\Users\whale\uiao-*` before the move into `C:\Users\whale\src\`),
+run the migration helper from `C:\Users\whale\src`:
+
+```powershell
+# Preview first
+pwsh .\uiao-core\templates\claude-kit\migrate-old-paths.ps1 -WhatIf
+
+# Apply
+pwsh .\uiao-core\templates\claude-kit\migrate-old-paths.ps1
+```
+
+The script rewrites three variants in common text files across `uiao-docs`,
+`uiao-gos`, and `uiao-impl`:
+
+| Old | New |
+|---|---|
+| `C:\Users\whale\uiao-*` | `C:\Users\whale\src\uiao-*` |
+| `c:\Users\whale\uiao-*` | `c:\Users\whale\src\uiao-*` |
+| `C:/Users/whale/uiao-*` | `C:/Users/whale/src/uiao-*` |
+
+Extensions scanned: `.md`, `.yml`, `.yaml`, `.py`, `.ps1`, `.sh`, `.qmd`,
+`.json`, `.txt`. `.git/` is skipped. Idempotent — safe to re-run.
+
+After running, commit the changes in each affected repo on its own branch.
