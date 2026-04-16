@@ -51,6 +51,12 @@ exclude = [
   # Cited in compliance/reference/fedramp-rev5/README.md as a "Recommendations"
   # pointer for periodic human browsing, not an authoritative reference.
   "^https?://(www\\.)?fedramp\\.gov/developers/?$",
+  # contributor-covenant.org/faq — canonical CoC FAQ referenced verbatim from
+  # CODE_OF_CONDUCT.md. The site drops non-browser connections (connection
+  # reset / 403) from GitHub-hosted runners; the accept list cannot cover a
+  # connection-reset because it is not an HTTP status. Human visitors reach
+  # the page fine.
+  "^https?://(www\\.)?contributor-covenant\\.org/faq/?$",
 ]
 
 # ── GitHub token ───────────────────────────────────────────────────────

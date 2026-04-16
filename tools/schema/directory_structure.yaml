@@ -10,10 +10,11 @@
 required_directories:
   # NOTE: .claude/ scaffolding (rules/, agents/, skills/, commands/) is a
   # tracked backlog item; add it back here once the directory exists.
+  # NOTE: generation-inputs/ was migrated to uiao-docs in Phase D.2
+  # (commit e65c05a); no longer a uiao-core invariant.
   - .github/workflows
   - canon
   - canon/specs
-  - generation-inputs
   - rules
   - schemas
   - scripts
