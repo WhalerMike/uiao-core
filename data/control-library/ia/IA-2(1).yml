@@ -92,3 +92,10 @@ related_controls:
   - AC-5    # Separation of Duties
   - AC-6    # Least Privilege
   - AU-2    # Event Logging
+ksi:
+  ksi_id: KSI-IA-02
+  ksi_title: Identification and Authentication
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-02.yaml

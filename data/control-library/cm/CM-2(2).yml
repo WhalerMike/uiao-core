@@ -90,3 +90,10 @@ related_controls:
   - CA-7   # Continuous Monitoring
   - SI-4   # System Monitoring
   - RA-5   # Vulnerability Monitoring and Scanning
+ksi:
+  ksi_id: KSI-CM-02
+  ksi_title: Baseline Configuration
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-02.yaml

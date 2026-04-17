@@ -83,3 +83,10 @@ related_controls:
     - IR-4   # Incident Handling
     - IR-6   # Incident Reporting
     - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AC-07
+  ksi_title: Unsuccessful Logon Attempts
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-07.yaml

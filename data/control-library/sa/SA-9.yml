@@ -84,3 +84,10 @@ related_controls:
   - IR-4   # Incident Handling
   - SC-7   # Boundary Protection
   - RA-3   # Risk Assessment
+ksi:
+  ksi_id: KSI-SA-09
+  ksi_title: External System Services
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-09.yaml

@@ -81,3 +81,10 @@ related_controls:
   - SI-3    # Malicious Code Protection
   - CA-7    # Continuous Monitoring
   - SI-5    # Security Alerts, Advisories, and Directives
+ksi:
+  ksi_id: KSI-SI-08
+  ksi_title: Spam Protection
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-08.yaml

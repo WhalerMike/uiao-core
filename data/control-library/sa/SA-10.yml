@@ -80,3 +80,10 @@ related_controls:
   - CM-3   # Configuration Change Control
   - SI-2   # Flaw Remediation
   - AC-6   # Least Privilege
+ksi:
+  ksi_id: KSI-SA-10
+  ksi_title: Developer Configuration Management
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-10.yaml

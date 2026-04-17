@@ -18,3 +18,10 @@ evidence:
 related_controls:
   - CP-4
   - IR-5
+ksi:
+  ksi_id: KSI-IR-06
+  ksi_title: Incident Reporting
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-06.yaml

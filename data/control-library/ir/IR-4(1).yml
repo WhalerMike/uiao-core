@@ -80,3 +80,10 @@ related_controls:
   - IR-8   # Incident Response Plan
   - AC-2   # Account Management
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-IR-04
+  ksi_title: Incident Handling
+  category: incident-response
+  family: IR
+  severity: critical
+  rule_path: rules/ksi/incident-response/ksi-ir-04.yaml

@@ -78,3 +78,10 @@ related_controls:
   - IR-4   # Incident Handling
   - IR-8   # Incident Response Plan
   - CA-7   # Continuous Monitoring
+ksi:
+  ksi_id: KSI-IR-02
+  ksi_title: Incident Response Training
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-02.yaml

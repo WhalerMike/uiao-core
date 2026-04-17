@@ -73,3 +73,10 @@ related_controls:
     - CM-6   # Configuration Settings
     - IA-2   # Identification and Authentication
     - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AC-11
+  ksi_title: Device Lock
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-11.yaml

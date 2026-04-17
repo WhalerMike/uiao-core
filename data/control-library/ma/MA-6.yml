@@ -88,3 +88,10 @@ related_controls:
   - CP-2   # Contingency Plan
   - RA-5   # Vulnerability Monitoring and Scanning
   - SI-2   # Flaw Remediation
+ksi:
+  ksi_id: KSI-MA-06
+  ksi_title: Timely Maintenance
+  category: planning-personnel
+  family: MA
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ma-06.yaml

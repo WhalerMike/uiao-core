@@ -90,3 +90,10 @@ related_controls:
   - CA-7   # Continuous Monitoring
   - IR-4   # Incident Handling
   - IA-2   # Identification and Authentication
+ksi:
+  ksi_id: KSI-AU-09
+  ksi_title: Protection of Audit Information
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-09.yaml

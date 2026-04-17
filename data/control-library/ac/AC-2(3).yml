@@ -93,3 +93,10 @@ related_controls:
   - PS-4   # Personnel Termination
   - AU-12  # Audit Record Generation
   - IR-4   # Incident Handling
+ksi:
+  ksi_id: KSI-AC-02
+  ksi_title: Account Management
+  category: iam
+  family: AC
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ac-02.yaml

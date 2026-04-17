@@ -64,3 +64,10 @@ related_controls:
   - AT-2  # Security Literacy Training
   - AC-2  # Account Management
   - PS-7  # External Personnel Security
+ksi:
+  ksi_id: KSI-PL-04
+  ksi_title: Rules of Behavior
+  category: planning-personnel
+  family: PL
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pl-04.yaml

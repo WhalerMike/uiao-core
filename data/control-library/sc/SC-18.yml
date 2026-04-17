@@ -82,3 +82,10 @@ related_controls:
   - CM-7    # Least Functionality
   - SI-3    # Malicious Code Protection
   - SI-4    # System Monitoring
+ksi:
+  ksi_id: KSI-SC-18
+  ksi_title: Mobile Code
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-18.yaml

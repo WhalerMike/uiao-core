@@ -78,3 +78,10 @@ related_controls:
   - SI-4    # System Monitoring
   - SC-8(1) # Cryptographic Protection
   - SC-7    # Boundary Protection
+ksi:
+  ksi_id: KSI-SC-20
+  ksi_title: Secure Name/Address Resolution Service (Authoritative Source)
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-20.yaml

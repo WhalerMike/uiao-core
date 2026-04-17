@@ -46,3 +46,10 @@ related_controls:
   - PS-4  # Personnel Termination
   - IR-4  # Incident Handling
   - PL-4  # Rules of Behavior
+ksi:
+  ksi_id: KSI-PS-08
+  ksi_title: Personnel Sanctions
+  category: planning-personnel
+  family: PS
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ps-08.yaml

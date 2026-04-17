@@ -78,3 +78,10 @@ related_controls:
   - CM-8   # System Component Inventory
   - SI-2   # Flaw Remediation
   - RA-3   # Risk Assessment
+ksi:
+  ksi_id: KSI-SA-22
+  ksi_title: Unsupported System Components
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-22.yaml

@@ -64,3 +64,10 @@ related_controls:
   - AU-9   # Protection of Audit Information
   - CA-7   # Continuous Monitoring
   - CP-9   # System Backup
+ksi:
+  ksi_id: KSI-AU-11
+  ksi_title: Audit Record Retention
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-11.yaml

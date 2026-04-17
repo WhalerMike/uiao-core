@@ -60,3 +60,10 @@ automation:
   method: Automated alert ingestion, ServiceNow compliance tracking, Defender for Cloud recommendations
   frequency: continuous
   evidence_artifact: cisa-bod-compliance-tracker
+ksi:
+  ksi_id: KSI-SI-05
+  ksi_title: "Security Alerts, Advisories, and Directives"
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-05.yaml

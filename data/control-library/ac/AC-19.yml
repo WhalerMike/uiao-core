@@ -72,3 +72,10 @@ related_controls:
   - AU-2   # Event Logging
   - SI-4   # System Monitoring
   - MP-6   # Media Sanitization
+ksi:
+  ksi_id: KSI-AC-19
+  ksi_title: Access Control for Mobile Devices
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-19.yaml

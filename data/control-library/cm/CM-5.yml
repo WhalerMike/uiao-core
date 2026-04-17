@@ -65,3 +65,10 @@ automation:
   method: PIM just-in-time access, credential vaulting, session recording
   frequency: continuous
   evidence_artifact: cyberark-privileged-access-audit-logs
+ksi:
+  ksi_id: KSI-CM-05
+  ksi_title: Access Restrictions for Change
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-05.yaml

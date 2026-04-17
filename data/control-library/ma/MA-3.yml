@@ -76,3 +76,10 @@ related_controls:
   - MA-5   # Maintenance Personnel
   - CM-7   # Least Functionality
   - MP-6   # Media Sanitization
+ksi:
+  ksi_id: KSI-MA-03
+  ksi_title: Maintenance Tools
+  category: planning-personnel
+  family: MA
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ma-03.yaml

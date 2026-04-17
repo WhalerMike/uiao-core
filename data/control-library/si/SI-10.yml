@@ -61,3 +61,10 @@ automation:
   method: OWASP rule enforcement, API Management schema validation, Sentinel input violation correlation
   frequency: continuous
   evidence_artifact: azure-waf-blocked-requests-dashboard
+ksi:
+  ksi_id: KSI-SI-10
+  ksi_title: Information Input Validation
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-10.yaml

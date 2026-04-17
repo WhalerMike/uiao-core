@@ -26,3 +26,10 @@ related_controls:
   - PE-9  # Power Equipment and Cabling
   - PE-11  # Emergency Power
   - CP-2  # Contingency Plan
+ksi:
+  ksi_id: KSI-PE-10
+  ksi_title: Emergency Shutoff
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-10.yaml

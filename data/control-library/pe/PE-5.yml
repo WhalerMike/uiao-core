@@ -26,3 +26,10 @@ related_controls:
   - PE-1  # Physical and Environmental Protection Policy
   - PE-3  # Physical Access Control
   - MP-4  # Media Storage
+ksi:
+  ksi_id: KSI-PE-05
+  ksi_title: Access Control for Output Devices
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-05.yaml

@@ -51,3 +51,10 @@ related_controls:
   - MP-2  # Media Access
   - MP-5  # Media Transport
   - SC-28 # Protection of Information at Rest
+ksi:
+  ksi_id: KSI-MP-03
+  ksi_title: Media Marking
+  category: planning-personnel
+  family: MP
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-mp-03.yaml

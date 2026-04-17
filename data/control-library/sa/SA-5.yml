@@ -82,3 +82,10 @@ related_controls:
   - CA-2   # Security Assessments
   - AU-2   # Event Logging
   - CM-6   # Configuration Settings
+ksi:
+  ksi_id: KSI-SA-05
+  ksi_title: System Documentation
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-05.yaml

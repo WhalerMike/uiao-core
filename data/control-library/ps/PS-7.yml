@@ -46,3 +46,10 @@ related_controls:
   - PS-3  # Personnel Screening
   - PS-6  # Access Agreements
   - SA-9  # External System Services
+ksi:
+  ksi_id: KSI-PS-07
+  ksi_title: External Personnel Security
+  category: planning-personnel
+  family: PS
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ps-07.yaml

@@ -77,3 +77,10 @@ related_controls:
   - AC-17   # Remote Access
   - SC-7    # Boundary Protection
   - IA-11   # Re-Authentication
+ksi:
+  ksi_id: KSI-SC-10
+  ksi_title: Network Disconnect
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-10.yaml

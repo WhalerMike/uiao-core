@@ -92,3 +92,10 @@ related_controls:
   - IA-2(12) # Acceptance of PIV Credentials
   - CA-3     # Information Exchange
   - AC-2     # Account Management
+ksi:
+  ksi_id: KSI-IA-08
+  ksi_title: Identification and Authentication (Non-Organizational Users)
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-08.yaml

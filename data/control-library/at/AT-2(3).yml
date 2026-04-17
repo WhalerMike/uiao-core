@@ -90,3 +90,10 @@ related_controls:
   - AT-4    # Training Records
   - PL-4(1) # Rules of Behavior — Social Media Restrictions
   - IR-2    # Incident Response Training
+ksi:
+  ksi_id: KSI-AT-02
+  ksi_title: Security Literacy Training
+  category: other
+  family: AT
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-at-02.yaml

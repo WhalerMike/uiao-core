@@ -86,3 +86,10 @@ related_controls:
   - CP-9   # System Backup
   - CP-9(1) # Backup Testing for Reliability and Integrity
   - CA-2   # Security Assessments
+ksi:
+  ksi_id: KSI-CP-10
+  ksi_title: System Recovery and Reconstitution
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-10.yaml

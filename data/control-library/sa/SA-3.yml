@@ -76,3 +76,10 @@ related_controls:
   - SA-15 # Development Process, Standards, and Tools
   - CA-7  # Continuous Monitoring
   - SI-2  # Flaw Remediation
+ksi:
+  ksi_id: KSI-SA-03
+  ksi_title: System Development Life Cycle
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-03.yaml

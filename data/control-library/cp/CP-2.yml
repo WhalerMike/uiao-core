@@ -21,3 +21,10 @@ evidence:
 related_controls:
   - CP-4
   - IR-5
+ksi:
+  ksi_id: KSI-CP-02
+  ksi_title: Contingency Plan
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-02.yaml

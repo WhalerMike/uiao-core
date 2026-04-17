@@ -70,3 +70,10 @@ related_controls:
   - AU-2   # Event Logging
   - IA-2   # Identification and Authentication
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AC-22
+  ksi_title: Publicly Accessible Content
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-22.yaml

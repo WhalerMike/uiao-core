@@ -90,3 +90,10 @@ related_controls:
   - AC-6    # Least Privilege
   - IA-5    # Authenticator Management
   - AU-2    # Event Logging
+ksi:
+  ksi_id: KSI-RA-05
+  ksi_title: Vulnerability Monitoring and Scanning
+  category: other
+  family: RA
+  severity: critical
+  rule_path: rules/ksi/other/ksi-ra-05.yaml

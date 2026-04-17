@@ -68,3 +68,10 @@ related_controls:
     - PM-9   # Risk Management Strategy
     - PM-28  # Risk Framing
     - CA-5   # Plan of Action and Milestones
+ksi:
+  ksi_id: KSI-RA-01
+  ksi_title: Risk Assessment Policy and Procedures
+  category: other
+  family: RA
+  severity: low
+  rule_path: rules/ksi/other/ksi-ra-01.yaml

@@ -100,3 +100,10 @@ related_controls:
   - IR-6   # Incident Reporting
   - CP-2(1) # Contingency Plan: Coordinate with Related Plans
   - CA-7   # Continuous Monitoring
+ksi:
+  ksi_id: KSI-IR-08
+  ksi_title: Incident Response Plan
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-08.yaml

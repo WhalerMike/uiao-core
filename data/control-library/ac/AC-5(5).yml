@@ -88,3 +88,10 @@ related_controls:
   - IA-2   # Identification and Authentication
   - PS-3   # Personnel Screening
   - IR-4   # Incident Handling
+ksi:
+  ksi_id: KSI-AC-05
+  ksi_title: Separation of Duties
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-05.yaml

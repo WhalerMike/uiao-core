@@ -1,0 +1,17 @@
+{
+  "_expect": {
+    "forward": false,
+    "severity": "info"
+  },
+  "payload": {
+    "object": {
+      "properties": {
+        "title": "Atlas: Noise event",
+        "severity": "Informational",
+        "status": "new",
+        "tactics": [],
+        "createdTimeUtc": "2026-04-16T15:00:00Z"
+      }
+    }
+  }
+}

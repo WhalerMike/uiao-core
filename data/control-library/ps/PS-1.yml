@@ -55,3 +55,10 @@ related_controls:
   - PS-4  # Personnel Termination
   - PS-5  # Personnel Transfer
   - PS-6  # Access Agreements
+ksi:
+  ksi_id: KSI-PS-01
+  ksi_title: Personnel Security Policy and Procedures
+  category: planning-personnel
+  family: PS
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-ps-01.yaml

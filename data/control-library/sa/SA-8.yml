@@ -79,3 +79,10 @@ related_controls:
   - SC-13  # Cryptographic Protection
   - AC-6   # Least Privilege
   - SC-7   # Boundary Protection
+ksi:
+  ksi_id: KSI-SA-08
+  ksi_title: Security and Privacy Engineering Principles
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-08.yaml

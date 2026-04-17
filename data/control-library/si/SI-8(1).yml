@@ -79,3 +79,10 @@ related_controls:
   - AU-2    # Event Logging
   - CA-7    # Continuous Monitoring
   - IA-2    # Identification and Authentication
+ksi:
+  ksi_id: KSI-SI-08
+  ksi_title: Spam Protection
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-08.yaml

@@ -51,3 +51,10 @@ related_controls:
   - MP-5  # Media Transport
   - SC-28 # Protection of Information at Rest
   - PE-3  # Physical Access Control
+ksi:
+  ksi_id: KSI-MP-04
+  ksi_title: Media Storage
+  category: planning-personnel
+  family: MP
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-mp-04.yaml

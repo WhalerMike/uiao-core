@@ -87,3 +87,10 @@ related_controls:
   - MP-6   # Media Sanitization
   - PE-3   # Physical Access Control
   - AU-2   # Event Logging
+ksi:
+  ksi_id: KSI-MA-03
+  ksi_title: Maintenance Tools
+  category: planning-personnel
+  family: MA
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ma-03.yaml

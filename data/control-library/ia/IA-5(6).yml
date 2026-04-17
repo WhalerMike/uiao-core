@@ -92,3 +92,10 @@ related_controls:
   - SC-12   # Cryptographic Key Establishment and Management
   - SC-13   # Cryptographic Protection
   - SC-28   # Protection of Information at Rest
+ksi:
+  ksi_id: KSI-IA-05
+  ksi_title: Authenticator Management
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-05.yaml

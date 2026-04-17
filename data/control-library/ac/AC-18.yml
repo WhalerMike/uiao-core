@@ -70,3 +70,10 @@ related_controls:
   - SC-8   # Transmission Confidentiality and Integrity
   - AU-2   # Event Logging
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AC-18
+  ksi_title: Wireless Access
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-18.yaml

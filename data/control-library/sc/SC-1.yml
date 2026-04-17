@@ -60,3 +60,10 @@ automation:
   method: Policy lifecycle management, compliance dashboard monitoring
   frequency: annual-review
   evidence_artifact: system-communications-protection-policy-document
+ksi:
+  ksi_id: KSI-SC-01
+  ksi_title: System and Communications Protection Policy and Procedures
+  category: boundary-protection
+  family: SC
+  severity: low
+  rule_path: rules/ksi/boundary-protection/ksi-sc-01.yaml

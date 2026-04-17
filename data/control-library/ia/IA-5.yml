@@ -22,3 +22,10 @@ evidence:
 related_controls:
   - AC-2
   - AC-3
+ksi:
+  ksi_id: KSI-IA-05
+  ksi_title: Authenticator Management
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-05.yaml

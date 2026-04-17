@@ -20,3 +20,10 @@ evidence:
 related_controls:
   - AC-2
   - AC-3
+ksi:
+  ksi_id: KSI-SI-02
+  ksi_title: Flaw Remediation
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-02.yaml

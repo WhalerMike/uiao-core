@@ -97,3 +97,10 @@ related_controls:
   - CM-8   # System Component Inventory
   - CA-7   # Continuous Monitoring
   - SA-10  # Developer Configuration Management
+ksi:
+  ksi_id: KSI-CM-09
+  ksi_title: Configuration Management Plan
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-09.yaml

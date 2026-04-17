@@ -1,0 +1,28 @@
+{
+  "_expect": {
+    "forward": true,
+    "severity": "high"
+  },
+  "payload": {
+    "id": "/subscriptions/sub/providers/Microsoft.SecurityInsights/incidents/abc-123",
+    "object": {
+      "id": "abc-123",
+      "properties": {
+        "title": "Atlas: Privileged Leaver Detected",
+        "severity": "High",
+        "status": "New",
+        "tactics": ["InitialAccess", "PrivilegeEscalation"],
+        "incidentUrl": "https://portal.azure.com/#/incident/abc-123",
+        "incidentNumber": 42,
+        "createdTimeUtc": "2026-04-16T14:30:00Z",
+        "entities": [
+          {
+            "kind": "Account",
+            "name": "jane.doe@agency.gov",
+            "properties": {"upnSuffix": "agency.gov"}
+          }
+        ]
+      }
+    }
+  }
+}

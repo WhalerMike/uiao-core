@@ -75,3 +75,10 @@ related_controls:
   - CA-2  # Security Assessments
   - CA-6  # Authorization
   - AC-5  # Separation of Duties
+ksi:
+  ksi_id: KSI-SA-02
+  ksi_title: Allocation of Resources
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-02.yaml

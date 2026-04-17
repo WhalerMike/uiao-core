@@ -84,3 +84,10 @@ related_controls:
   - IR-6   # Incident Reporting
   - SI-4   # System Monitoring
   - PS-8   # Personnel Sanctions
+ksi:
+  ksi_id: KSI-AT-02
+  ksi_title: Security Literacy Training
+  category: other
+  family: AT
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-at-02.yaml

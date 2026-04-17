@@ -1,0 +1,23 @@
+{
+  "_expect": {
+    "forward": true,
+    "severity": "medium"
+  },
+  "payload": {
+    "properties": {
+      "title": "Atlas: Device Compliance Drift",
+      "severity": "Medium",
+      "status": "new",
+      "tactics": "DefenseEvasion",
+      "incidentUrl": "https://portal.azure.com/#/incident/cm-drift-88",
+      "incidentNumber": 88,
+      "createdTimeUtc": "2026-04-16T15:15:00Z",
+      "entities": [
+        {
+          "kind": "Host",
+          "name": "WIN-USR-042"
+        }
+      ]
+    }
+  }
+}

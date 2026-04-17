@@ -23,3 +23,10 @@ evidence:
 related_controls:
   - AC-2
   - AC-3
+ksi:
+  ksi_id: KSI-AC-06
+  ksi_title: Least Privilege
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-06.yaml

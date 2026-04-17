@@ -74,3 +74,10 @@ related_controls:
   - CM-7  # Least Functionality
   - SA-4  # Acquisition Process
   - SI-4  # System Monitoring
+ksi:
+  ksi_id: KSI-SA-04
+  ksi_title: Acquisition Process
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-04.yaml

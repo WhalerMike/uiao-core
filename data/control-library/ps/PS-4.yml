@@ -48,3 +48,10 @@ related_controls:
   - PS-5  # Personnel Transfer
   - AC-2  # Account Management
   - IA-4  # Identifier Management
+ksi:
+  ksi_id: KSI-PS-04
+  ksi_title: Personnel Termination
+  category: planning-personnel
+  family: PS
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ps-04.yaml

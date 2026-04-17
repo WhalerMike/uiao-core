@@ -61,3 +61,10 @@ automation:
   method: Policy lifecycle management, recovery procedure documentation
   frequency: annual-review
   evidence_artifact: contingency-planning-policy-document
+ksi:
+  ksi_id: KSI-CP-01
+  ksi_title: Contingency Planning Policy and Procedures
+  category: other
+  family: CP
+  severity: low
+  rule_path: rules/ksi/other/ksi-cp-01.yaml

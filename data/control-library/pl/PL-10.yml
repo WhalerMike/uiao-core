@@ -85,3 +85,10 @@ related_controls:
   - CA-2   # Security Assessments
   - CA-6   # Authorization
   - PM-9   # Risk Management Strategy
+ksi:
+  ksi_id: KSI-PL-10
+  ksi_title: Baseline Selection
+  category: planning-personnel
+  family: PL
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pl-10.yaml

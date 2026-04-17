@@ -74,3 +74,10 @@ related_controls:
   - AC-4   # Information Flow Enforcement
   - SA-9   # External System Services
   - PM-9   # Risk Management Strategy
+ksi:
+  ksi_id: KSI-CA-03
+  ksi_title: Information Exchange
+  category: other
+  family: CA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-ca-03.yaml

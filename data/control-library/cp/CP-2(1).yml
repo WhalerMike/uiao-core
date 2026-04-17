@@ -77,3 +77,10 @@ related_controls:
   - IR-8   # Incident Response Plan
   - PL-2   # System Security and Privacy Plans
   - CP-10  # System Recovery and Reconstitution
+ksi:
+  ksi_id: KSI-CP-02
+  ksi_title: Contingency Plan
+  category: other
+  family: CP
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-cp-02.yaml

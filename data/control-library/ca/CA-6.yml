@@ -81,3 +81,10 @@ related_controls:
   - CA-5   # Plan of Action and Milestones
   - CA-7   # Continuous Monitoring
   - PM-10  # Authorization Process
+ksi:
+  ksi_id: KSI-CA-06
+  ksi_title: Authorization
+  category: other
+  family: CA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-ca-06.yaml

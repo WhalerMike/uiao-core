@@ -26,3 +26,10 @@ related_controls:
   - PE-2  # Physical Access Authorizations
   - PE-3  # Physical Access Control
   - PE-6  # Monitoring Physical Access
+ksi:
+  ksi_id: KSI-PE-08
+  ksi_title: Visitor Access Records
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-08.yaml

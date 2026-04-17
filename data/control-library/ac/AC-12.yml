@@ -65,3 +65,10 @@ related_controls:
   - IA-2   # Identification and Authentication
   - AU-2   # Event Logging
   - AU-6   # Audit Record Review, Analysis, and Reporting
+ksi:
+  ksi_id: KSI-AC-12
+  ksi_title: Session Termination
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-12.yaml

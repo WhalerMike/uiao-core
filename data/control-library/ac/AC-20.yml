@@ -79,3 +79,10 @@ related_controls:
   - SC-7   # Boundary Protection
   - AU-6   # Audit Record Review, Analysis, and Reporting
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-AC-20
+  ksi_title: Use of External Systems
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-20.yaml

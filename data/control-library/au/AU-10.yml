@@ -62,3 +62,10 @@ automation:
   method: Immutable storage policies, cryptographic signing, identity binding
   frequency: continuous
   evidence_artifact: sentinel-nonrepudiation-audit-dashboard
+ksi:
+  ksi_id: KSI-AU-10
+  ksi_title: Non-repudiation
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-10.yaml

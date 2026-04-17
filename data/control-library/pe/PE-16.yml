@@ -27,3 +27,10 @@ related_controls:
   - PE-3  # Physical Access Control
   - CM-8  # System Component Inventory
   - MP-5  # Media Transport
+ksi:
+  ksi_id: KSI-PE-16
+  ksi_title: Delivery and Removal
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-16.yaml

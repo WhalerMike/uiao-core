@@ -57,3 +57,10 @@ automation:
   method: Policy lifecycle management, knowledge base distribution
   frequency: annual-review
   evidence_artifact: audit-accountability-policy-document
+ksi:
+  ksi_id: KSI-AU-01
+  ksi_title: Audit and Accountability Policy and Procedures
+  category: monitoring-logging
+  family: AU
+  severity: low
+  rule_path: rules/ksi/monitoring-logging/ksi-au-01.yaml

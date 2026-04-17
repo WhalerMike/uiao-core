@@ -64,3 +64,10 @@ automation:
   method: File integrity monitoring, Defender for Cloud change tracking, Intune code signing enforcement
   frequency: continuous
   evidence_artifact: crowdstrike-fim-baseline-report
+ksi:
+  ksi_id: KSI-SI-07
+  ksi_title: "Software, Firmware, and Information Integrity"
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-07.yaml

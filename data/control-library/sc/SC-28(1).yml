@@ -81,3 +81,10 @@ related_controls:
   - IA-5    # Authenticator Management
   - SC-8(1) # Cryptographic Protection in Transit
   - MP-5    # Media Transport
+ksi:
+  ksi_id: KSI-SC-28
+  ksi_title: Protection of Information at Rest
+  category: boundary-protection
+  family: SC
+  severity: critical
+  rule_path: rules/ksi/boundary-protection/ksi-sc-28.yaml

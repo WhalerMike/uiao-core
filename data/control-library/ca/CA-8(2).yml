@@ -78,3 +78,10 @@ related_controls:
   - SI-4   # System Monitoring
   - IA-2   # Identification and Authentication
   - AC-6   # Least Privilege
+ksi:
+  ksi_id: KSI-CA-08
+  ksi_title: Penetration Testing
+  category: other
+  family: CA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-ca-08.yaml

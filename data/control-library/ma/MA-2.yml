@@ -75,3 +75,10 @@ related_controls:
   - MA-5   # Maintenance Personnel
   - CM-3   # Configuration Change Control
   - SI-2   # Flaw Remediation
+ksi:
+  ksi_id: KSI-MA-02
+  ksi_title: Controlled Maintenance
+  category: planning-personnel
+  family: MA
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ma-02.yaml

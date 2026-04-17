@@ -80,3 +80,10 @@ related_controls:
   - IR-4    # Incident Handling
   - CA-7    # Continuous Monitoring
   - AU-2    # Event Logging
+ksi:
+  ksi_id: KSI-SI-04
+  ksi_title: System Monitoring
+  category: monitoring-logging
+  family: SI
+  severity: critical
+  rule_path: rules/ksi/monitoring-logging/ksi-si-04.yaml

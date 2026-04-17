@@ -44,3 +44,10 @@ related_controls:
   - PS-4  # Personnel Termination
   - AC-2  # Account Management
   - AC-5  # Separation of Duties
+ksi:
+  ksi_id: KSI-PS-05
+  ksi_title: Personnel Transfer
+  category: planning-personnel
+  family: PS
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ps-05.yaml

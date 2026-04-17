@@ -66,3 +66,10 @@ automation:
   method: EDR behavioral analysis, Defender for Endpoint anti-malware, Sentinel correlation
   frequency: continuous
   evidence_artifact: crowdstrike-falcon-detection-dashboard
+ksi:
+  ksi_id: KSI-SI-03
+  ksi_title: Malicious Code Protection
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-03.yaml

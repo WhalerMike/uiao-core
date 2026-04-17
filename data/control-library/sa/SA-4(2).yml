@@ -78,3 +78,10 @@ related_controls:
   - SA-11  # Developer Testing and Evaluation
   - CA-3   # Information Exchange
   - SA-5   # System Documentation
+ksi:
+  ksi_id: KSI-SA-04
+  ksi_title: Acquisition Process
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-04.yaml

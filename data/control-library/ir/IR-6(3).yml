@@ -87,3 +87,10 @@ related_controls:
   - IR-8   # Incident Response Plan
   - SA-9   # External System Services
   - RA-3   # Risk Assessment
+ksi:
+  ksi_id: KSI-IR-06
+  ksi_title: Incident Reporting
+  category: incident-response
+  family: IR
+  severity: high
+  rule_path: rules/ksi/incident-response/ksi-ir-06.yaml

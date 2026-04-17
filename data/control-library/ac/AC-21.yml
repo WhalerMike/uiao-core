@@ -77,3 +77,10 @@ related_controls:
   - IR-4   # Incident Handling
   - RA-2   # Security Categorization
   - SC-7   # Boundary Protection
+ksi:
+  ksi_id: KSI-AC-21
+  ksi_title: Information Sharing
+  category: iam
+  family: AC
+  severity: high
+  rule_path: rules/ksi/iam/ksi-ac-21.yaml

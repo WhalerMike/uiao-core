@@ -76,3 +76,10 @@ related_controls:
   - CM-7  # Least Functionality
   - SI-4   # System Monitoring
   - CA-3   # Information Exchange
+ksi:
+  ksi_id: KSI-SA-09
+  ksi_title: External System Services
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-09.yaml

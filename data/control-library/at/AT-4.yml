@@ -74,3 +74,10 @@ related_controls:
     - AU-11  # Audit Record Retention
     - PM-13  # Security and Privacy Workforce
     - PM-14  # Testing, Training, and Monitoring
+ksi:
+  ksi_id: KSI-AT-04
+  ksi_title: Training Records
+  category: other
+  family: AT
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-at-04.yaml

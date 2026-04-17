@@ -83,3 +83,10 @@ related_controls:
   - CM-6    # Configuration Settings
   - SA-8    # Security and Privacy Engineering Principles
   - IR-4    # Incident Handling
+ksi:
+  ksi_id: KSI-SI-16
+  ksi_title: Memory Protection
+  category: monitoring-logging
+  family: SI
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-si-16.yaml

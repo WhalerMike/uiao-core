@@ -91,3 +91,10 @@ related_controls:
   - CM-8   # System Component Inventory
   - CA-7   # Continuous Monitoring
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-CM-07
+  ksi_title: Least Functionality
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-07.yaml

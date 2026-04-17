@@ -40,3 +40,10 @@ related_controls:
   - CM-3  # Configuration Change Control
   - CM-6  # Configuration Settings
   - SA-10 # Developer Configuration Management
+ksi:
+  ksi_id: KSI-CM-02
+  ksi_title: Baseline Configuration
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-02.yaml

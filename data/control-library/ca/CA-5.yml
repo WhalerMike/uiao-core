@@ -78,3 +78,10 @@ related_controls:
   - RA-5   # Vulnerability Monitoring and Scanning
   - PM-4   # Plan of Action and Milestones Process
   - SI-2   # Flaw Remediation
+ksi:
+  ksi_id: KSI-CA-05
+  ksi_title: Plan of Action and Milestones
+  category: other
+  family: CA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-ca-05.yaml

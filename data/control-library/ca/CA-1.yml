@@ -71,3 +71,10 @@ related_controls:
   - CA-7   # Continuous Monitoring
   - PM-9   # Risk Management Strategy
   - RA-1   # Risk Assessment Policy and Procedures
+ksi:
+  ksi_id: KSI-CA-01
+  ksi_title: "Assessment, Authorization, and Monitoring Policy and Procedures"
+  category: other
+  family: CA
+  severity: low
+  rule_path: rules/ksi/other/ksi-ca-01.yaml

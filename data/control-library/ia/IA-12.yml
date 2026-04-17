@@ -77,3 +77,10 @@ related_controls:
   - IA-4   # Identifier Management
   - IA-5   # Authenticator Management
   - AU-2   # Event Logging
+ksi:
+  ksi_id: KSI-IA-12
+  ksi_title: Identity Proofing
+  category: iam
+  family: IA
+  severity: critical
+  rule_path: rules/ksi/iam/ksi-ia-12.yaml

@@ -92,3 +92,10 @@ related_controls:
   - SA-4   # Acquisition Process
   - AC-6   # Least Privilege
   - SI-3   # Malicious Code Protection
+ksi:
+  ksi_id: KSI-CM-10
+  ksi_title: Software Usage Restrictions
+  category: configuration-management
+  family: CM
+  severity: high
+  rule_path: rules/ksi/configuration-management/ksi-cm-10.yaml

@@ -1,0 +1,101 @@
+name: Canon sync — PAT rotation check
+
+# Periodically verifies that CANON_SYNC_DISPATCH_TOKEN is alive, carries the
+# required cross-repo scopes, and that the registry state is dispatch-safe.
+# Fires on a weekly schedule plus on-demand via workflow_dispatch so an
+# operator can run it immediately after rotating the PAT.
+#
+# NOTE: this workflow does NOT rotate the PAT itself — GitHub does not expose
+# a rotation API for fine-grained tokens. It gives early warning so the
+# operator can rotate manually via Settings → Developer settings → Fine-grained
+# tokens before expiration, and confirms a freshly-rotated token is wired up
+# correctly before the next real canon-sync fires.
+
+on:
+  schedule:
+    # Every Monday at 07:00 UTC
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+    inputs:
+      skip-dispatch-check:
+        description: "Skip local sync_canon dispatch-readiness check"
+        required: false
+        default: "false"
+
+concurrency:
+  group: canon-sync-pat-check
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify PAT + round-trip readiness
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout uiao-core
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install pinned tooling deps
+        run: python3 -m pip install --quiet -r tools/requirements.txt
+
+      - name: Run verifier
+        id: verify
+        env:
+          CANON_SYNC_DISPATCH_TOKEN: ${{ secrets.CANON_SYNC_DISPATCH_TOKEN }}
+        run: |
+          set +e
+          skip_flag=""
+          if [[ "${{ inputs.skip-dispatch-check }}" == "true" ]]; then
+            skip_flag="--skip-dispatch-check"
+          fi
+          python3 tools/verify_canon_sync_roundtrip.py --json ${skip_flag} > verify-report.json
+          rc=$?
+          cat verify-report.json
+          echo "exit_code=${rc}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Render summary
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib
+          rpt = json.loads(pathlib.Path("verify-report.json").read_text())
+          out = pathlib.Path(os.environ["GITHUB_STEP_SUMMARY"])
+          with out.open("a") as f:
+              f.write("## Canon sync PAT + round-trip check\n\n")
+              f.write(f"- **Token present:** `{rpt['token_present']}`\n")
+              if rpt.get("token_expires_at"):
+                  f.write(f"- **Expires:** `{rpt['token_expires_at']}`")
+                  if rpt.get("token_days_remaining") is not None:
+                      f.write(f" ({rpt['token_days_remaining']}d remaining)")
+                  f.write("\n")
+              f.write(f"- **Repos checked:** {', '.join(f'`{r}`' for r in rpt.get('repos_checked', []))}\n")
+              f.write(f"- **Exit code:** `{rpt['exit_code']}`\n\n")
+              f.write("| Check | Result | Detail |\n|---|---|---|\n")
+              for c in rpt.get("checks", []):
+                  mark = "✅" if c["ok"] else "❌"
+                  detail = c["detail"].replace("|", "\\|")
+                  f.write(f"| `{c['name']}` | {mark} | {detail} |\n")
+          PY
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: canon-sync-pat-report
+          path: verify-report.json
+          retention-days: 30
+
+      - name: Fail if verification failed
+        if: steps.verify.outputs.exit_code != '0'
+        run: |
+          echo "::error::canon-sync PAT verification failed (exit ${{ steps.verify.outputs.exit_code }}). Rotate CANON_SYNC_DISPATCH_TOKEN."
+          exit 1

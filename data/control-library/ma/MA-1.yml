@@ -62,3 +62,10 @@ related_controls:
   - MA-5  # Maintenance Personnel
   - CM-3  # Configuration Change Control
   - PM-9  # Risk Management Strategy
+ksi:
+  ksi_id: KSI-MA-01
+  ksi_title: System Maintenance Policy and Procedures
+  category: planning-personnel
+  family: MA
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-ma-01.yaml

@@ -35,3 +35,10 @@ related_controls:
   - PE-4  # Access Control for Transmission
   - PE-6  # Monitoring Physical Access
   - PE-8  # Visitor Access Records
+ksi:
+  ksi_id: KSI-PE-03
+  ksi_title: Physical Access Control
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-03.yaml

@@ -1,0 +1,59 @@
+# Example auth.yaml — credential profiles per target system.
+#
+# Copy to config/auth.yaml (gitignored) and customize for the current
+# environment. Values referencing environment variables should use the
+# `_env` suffix convention (e.g. client_secret_env: CLIENT_SECRET).
+#
+# Three profiles are supported, and a single system's profile can be
+# flipped independently as the agency cutover rolls out. Today all
+# systems use service-account; v1.1 will migrate a subset to oauth2
+# and/or mtls.
+
+systems:
+
+  # ----- Service-account profile (current default) -----
+  servicenow:
+    profile: service-account
+    username_env: SN_SVC_USER
+    password_env: SN_SVC_PASS
+
+  infoblox:
+    profile: service-account
+    username_env: INFOBLOX_USER
+    password_env: INFOBLOX_PASS
+
+  panorama:
+    profile: service-account
+    api_key_env: PANORAMA_API_KEY
+    api_key_header: X-PAN-KEY
+
+  # ----- OAuth2 client-credentials profile (v1.1 target) -----
+  entra_graph:
+    profile: oauth2
+    token_endpoint: "https://login.microsoftonline.us/common/oauth2/v2.0/token"  # GCC-M
+    client_id: "atlas-app-registration-id"
+    client_secret_env: CLIENT_SECRET
+    scope: "https://graph.microsoft.us/.default"
+
+  sentinel:
+    profile: oauth2
+    token_endpoint: "https://login.microsoftonline.us/common/oauth2/v2.0/token"
+    client_id: "atlas-sentinel-app"
+    client_secret_env: SENTINEL_CLIENT_SECRET
+    scope: "https://api.loganalytics.us/.default"
+
+  # ----- mTLS profile (v1.1 target for on-prem PKI-anchored adapters) -----
+  cyberark:
+    profile: mtls
+    cert_path: "/etc/uiao/mtls/cyberark-client.crt"
+    key_path: "/etc/uiao/mtls/cyberark-client.key"
+    key_password_env: CYBERARK_KEY_PASSWORD
+    ca_bundle_path: "/etc/uiao/mtls/agency-root-ca.pem"
+    server_hostname: "vault.agency.gov"
+
+  pki_ca:
+    profile: mtls
+    cert_path: "/etc/uiao/mtls/pki-client.crt"
+    key_path: "/etc/uiao/mtls/pki-client.key"
+    ca_bundle_path: "/etc/uiao/mtls/agency-root-ca.pem"
+    server_hostname: "pki.agency.gov"

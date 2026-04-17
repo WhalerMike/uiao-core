@@ -21,3 +21,10 @@ evidence:
 related_controls:
   - AU-2
   - SI-4
+ksi:
+  ksi_id: KSI-AU-02
+  ksi_title: Event Logging
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-02.yaml

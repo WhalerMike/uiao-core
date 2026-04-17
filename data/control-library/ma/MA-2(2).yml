@@ -87,3 +87,10 @@ related_controls:
   - CM-3   # Configuration Change Control
   - AU-2   # Event Logging
   - SI-4   # System Monitoring
+ksi:
+  ksi_id: KSI-MA-02
+  ksi_title: Controlled Maintenance
+  category: planning-personnel
+  family: MA
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ma-02.yaml

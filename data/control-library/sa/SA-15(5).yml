@@ -76,3 +76,10 @@ related_controls:
   - SC-7   # Boundary Protection
   - SC-7(5) # Deny by Default
   - RA-3   # Risk Assessment
+ksi:
+  ksi_id: KSI-SA-15
+  ksi_title: "Development Process, Standards, and Tools"
+  category: other
+  family: SA
+  severity: moderate
+  rule_path: rules/ksi/other/ksi-sa-15.yaml

@@ -46,3 +46,10 @@ related_controls:
   - PE-15  # Water Damage Protection
   - PE-16  # Delivery and Removal
   - PE-17  # Alternate Work Site
+ksi:
+  ksi_id: KSI-PE-01
+  ksi_title: Physical and Environmental Protection Policy and Procedures
+  category: planning-personnel
+  family: PE
+  severity: low
+  rule_path: rules/ksi/planning-personnel/ksi-pe-01.yaml

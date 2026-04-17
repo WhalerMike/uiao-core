@@ -68,3 +68,10 @@ related_controls:
   - AU-5   # Response to Audit Logging Process Failures
   - AU-9   # Protection of Audit Information
   - AU-11  # Audit Record Retention
+ksi:
+  ksi_id: KSI-AU-04
+  ksi_title: Audit Log Storage Capacity
+  category: monitoring-logging
+  family: AU
+  severity: high
+  rule_path: rules/ksi/monitoring-logging/ksi-au-04.yaml

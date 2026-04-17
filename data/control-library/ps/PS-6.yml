@@ -46,3 +46,10 @@ related_controls:
   - PL-4  # Rules of Behavior
   - AC-2  # Account Management
   - PS-7  # External Personnel Security
+ksi:
+  ksi_id: KSI-PS-06
+  ksi_title: Access Agreements
+  category: planning-personnel
+  family: PS
+  severity: moderate
+  rule_path: rules/ksi/planning-personnel/ksi-ps-06.yaml
