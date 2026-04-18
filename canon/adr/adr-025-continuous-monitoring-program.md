@@ -1598,7 +1598,7 @@ Say the word and I'll commit. After the commits land, I'll move straight to Step
 
 ### **User** — 2026-04-14 14:25:22 UTC
 
-Give me this with absolute reference:  C:\Users\whale\uiao-core      cd uiao-core
+Give me this with absolute reference:  C:\Users\whale\src\uiao-core      cd uiao-core
 git pack-refs --all
 # or, if that won't run, delete .git/packed-refs and let git rebuild it on next fetch
 
@@ -1606,38 +1606,38 @@ git pack-refs --all
 
 ### **Assistant** — 2026-04-14 14:25:30 UTC
 
-Here's the absolute-path version for `C:\Users\whale\uiao-core`:
+Here's the absolute-path version for `C:\Users\whale\src\uiao-core`:
 
 ```
-cd /d C:\Users\whale\uiao-core
+cd /d C:\Users\whale\src\uiao-core
 git pack-refs --all
 ```
 
 If `git pack-refs --all` won't run (same "unterminated line" error), delete the malformed file and let git rebuild it on next fetch:
 
 ```
-cd /d C:\Users\whale\uiao-core
-del C:\Users\whale\uiao-core\.git\packed-refs
+cd /d C:\Users\whale\src\uiao-core
+del C:\Users\whale\src\uiao-core\.git\packed-refs
 git fetch --all
 ```
 
 PowerShell equivalents, if you're in PowerShell rather than cmd:
 
 ```
-Set-Location 'C:\Users\whale\uiao-core'
+Set-Location 'C:\Users\whale\src\uiao-core'
 git pack-refs --all
 ```
 
 ```
-Set-Location 'C:\Users\whale\uiao-core'
-Remove-Item 'C:\Users\whale\uiao-core\.git\packed-refs'
+Set-Location 'C:\Users\whale\src\uiao-core'
+Remove-Item 'C:\Users\whale\src\uiao-core\.git\packed-refs'
 git fetch --all
 ```
 
 After either path runs cleanly, verify with:
 
 ```
-cd /d C:\Users\whale\uiao-core
+cd /d C:\Users\whale\src\uiao-core
 git status
 ```
 
@@ -1647,7 +1647,7 @@ git status
 
 ### **User** — 2026-04-14 14:27:16 UTC
 
-PS C:\Users\whale\uiao-core> git status
+PS C:\Users\whale\src\uiao-core> git status
 On branch main
 Your branch is up to date with 'origin/main'.
 Changes not staged for commit:
@@ -1659,7 +1659,7 @@ Untracked files:
         ARCHITECTURE.md
         canon/UIAO_003_Adapter_Segmentation_Overview_v1.0.md
 no changes added to commit (use "git add" and/or "git commit -a")
-PS C:\Users\whale\uiao-core>
+PS C:\Users\whale\src\uiao-core>
 
 ---
 
@@ -1680,19 +1680,19 @@ That canon file isn't something I created in this session. Before I commit, conf
 
 Assuming that's the answer, my plan for the three commits is:
 
-**uiao-core** (`C:\Users\whale\uiao-core`)
+**uiao-core** (`C:\Users\whale\src\uiao-core`)
 ```
 git add README.md ARCHITECTURE.md
 git commit -m "[UIAO-CORE] CREATE: ARCHITECTURE.md — customer documentation platform architecture (federal pair)"
 ```
 
-**uiao-docs** (`C:\Users\whale\uiao-docs` — confirm the path)
+**uiao-docs** (`C:\Users\whale\src\uiao-docs` — confirm the path)
 ```
 git add README.md
 git commit -m "[UIAO-DOCS] UPDATE: README.md — pointer to uiao-core/ARCHITECTURE.md"
 ```
 
-**uiao-gos** (`C:\Users\whale\uiao-gos` — confirm the path)
+**uiao-gos** (`C:\Users\whale\src\uiao-gos` — confirm the path)
 ```
 git add README.md ARCHITECTURE.md
 git commit -m "CREATE: ARCHITECTURE.md — commercial product architecture (firewalled from federal pair)"
@@ -1843,7 +1843,7 @@ When I tried to fetch the three links you gave me (the ScubaGear repo, the FedRA
 Two ways you can close that gap whenever you want:
 
 1. **Paste the text** — copy the relevant section from the PDF or web page into chat. I read it directly from the message.
-2. **Drop the PDFs in a mounted folder** — save `Continuous_Monitoring_Playbook.pdf` and `NIST.SP.800-137.pdf` anywhere under `C:\Users\whale\uiao-core\`, `uiao-docs\`, or `uiao-gos\`. I can then read them with my file tools (using the `pdf` skill) and replace every `UNSURE` with verified text-plus-citation.
+2. **Drop the PDFs in a mounted folder** — save `Continuous_Monitoring_Playbook.pdf` and `NIST.SP.800-137.pdf` anywhere under `C:\Users\whale\src\uiao-core\`, `uiao-docs\`, or `uiao-gos\`. I can then read them with my file tools (using the `pdf` skill) and replace every `UNSURE` with verified text-plus-citation.
 
 Not urgent — I can proceed on training knowledge and we flag them as `UNSURE (source not verified 2026-04-14)` in canon. When you have a quiet moment, drop the PDFs and I'll do a pass to verify.
 
@@ -1941,7 +1941,7 @@ Everything is in place. Let me complete the todo list and summarize.
 
 All edits are in the working tree. Here's the report.
 
-## What landed in `C:\Users\whale\uiao-core`
+## What landed in `C:\Users\whale\src\uiao-core`
 
 | File | State | Size | Notes |
 |---|---|---|---|
