@@ -36,7 +36,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout uiao-core
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Validate registries before dispatch
         run: |
